@@ -1,0 +1,351 @@
+/* ========================
+   PALETA (variáveis para facilitar)
+   ======================== */
+:root{
+  --marrom-escuro: #291C0E; /* botão principal e header */
+  --marrom-medio:  #6E473B; /* título e bordas */
+  --marrom-claro:  #A78D78; /* botões sociais */
+  --bege-meio:     #BEB5A9; /* cor do card / inputs */
+  --bege-claro:    #E1D4C2; /* fundo da página */
+  --texto-escuro:  #2b1f18; /* tom para textos secundários */
+  --radius: 14px;          /* padrão de borda arredondada */
+  --gap: 18px;             /* espaçamento padrão */
+  --max-width-card: 720px; /* largura máxima do card */
+}
+
+/* ========================
+   Reset / base
+   ======================== */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  background: var(--bege-claro);
+  color: var(--texto-escuro);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.35;
+}
+
+/* ========================
+   Wrapper que centraliza o card na tela
+   ======================== */
+.page-wrapper {
+  min-height: 100vh;                /* ocupar a tela toda */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;               /* espaçamento em telas pequenas */
+}
+
+/* ========================
+   CARD (bloco principal atrás do formulário)
+   ======================== */
+.card {
+  width: 100%;
+  max-width: var(--max-width-card);
+  background: linear-gradient(180deg, rgba(190,181,169,0.9), rgba(167,141,120,0.9)); /* leve variação */
+  border-radius: calc(var(--radius) * 1.2);
+  padding: 36px;
+  box-shadow: 0 10px 30px rgba(41,28,14,0.12);
+  /* Para separar conteúdo verticalmente */
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ========================
+   Header do card (logo + entrar)
+   ======================== */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo*/
+#logo {
+  width: 150px; /* ajusta  o tamanho da imagem*/
+  height: auto; /* mantém a proporção*/
+  float: left;  /* deixa a imagem a esqquerda*/
+  margin-right: 20px;
+
+
+}
+
+/* Link "Entrar" no topo */
+.link-entrar {
+  text-decoration: none;
+  color: var(--marrom-escuro);
+  font-weight: 600;
+}
+
+/* Estilo base para o link "Entrar" */
+.link-entrar {
+  color: var(--marrom-escuro);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+/* Hover: sublinha a palavra */
+.link-entrar:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+
+/* ========================
+   Título principal
+   ======================== */
+.title {
+  text-align: center;
+  margin: 8px 0 10px 0;
+  font-size: 32px;
+  color: var(--marrom-medio);
+}
+
+/* ========================
+   Linha de botões sociais
+   ======================== */
+.social-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Botões das redes (apenas estilo visual) */
+.social-btn {
+  background: var(--marrom-claro);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+  color: var(--marrom-escuro);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.social-btn:active,
+.social-btn:focus {
+  transform: translateY(1px);
+  outline: none;
+}
+.social-btn {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease; /* animação suave */
+  background-color: #7c625a; /* cor padrão */
+  color: #ffffff;
+}
+
+/*Efeito de passa o mouse*/
+.social-btn:hover {
+  transform: scale(1.1); /*aumenta*/
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+}
+
+/* Cores especificas para da botão  ao horver */
+.Google:hover {
+  background-color: #4285f4;
+  color: white;
+}
+
+.Apple:hover {
+  background-color: #000;
+  color: white;
+}
+
+
+.Facebook>:hover {
+  background-color: #3b5998;
+  color: white;
+}
+
+
+/* ========================
+   Divisor "Ou cadastre-se com seu e-mail"
+   ======================== */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--marrom-medio);
+  font-size: 14px;
+  justify-content: center;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 1px;
+  background: rgba(41,28,14,0.12);
+}
+
+/* ========================
+   FORMULÁRIO: labels e inputs
+   ======================== */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Labels discretos (aumentam a acessibilidade) */
+.label {
+  display: none; /* escondemos visualmente porque usamos placeholders; mantém a acessibilidade se quiser mostrar, troque para block */
+  font-size: 13px;
+  color: var(--marrom-medio);
+  margin-bottom: 6px;
+}
+
+/* Estilo dos inputs */
+.input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(41,28,14,0.12);
+  background: rgba(190,181,169,0.95); /* bege meio */
+  font-size: 16px;
+  color: var(--marrom-escuro);
+  transition: box-shadow .12s ease, border-color .12s ease;
+}
+
+/* Foco visível para acessibilidade */
+.input:focus {
+  outline: none;
+  border-color: var(--marrom-medio);
+  box-shadow: 0 6px 18px rgba(41,28,14,0.08);
+}
+
+/* ========================
+   Termos (checkbox + texto)
+   ======================== */
+.terms {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-top: 4px;
+}
+
+.terms input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 6px;
+}
+
+.terms-label {
+  font-size: 14px;
+  color: var(--marrom-escuro);
+}
+
+/* Link dentro dos termos */
+.link-termos {
+  color: var(--marrom-escuro);
+  text-decoration: underline;
+}
+
+/* ========================
+   Botão principal (Cadastrar)
+   ======================== */
+.btn-primary {
+  margin-top: 4px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: var(--marrom-escuro);
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(41,28,14,0.16);
+  transition: transform .12s ease, filter .12s ease;
+}
+
+
+/* Estado hover para desktop */
+.btn-primary:hover {
+  transform: scale(1.05) translateY(-2px);
+  filter: brightness(1.05);
+  background-color: var(--marrom-escuro);
+}
+
+/* ========================
+   Rodapé do card
+   ======================== */
+.card-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.have-account {
+  margin: 0;
+  color: var(--marrom-medio);
+}
+
+.small-links {
+  font-size: 14px;
+  color: var(--marrom-medio);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* ========================
+   RESPONSIVIDADE
+   ======================== */
+/* Em telas pequenas o card ocupa quase toda a largura */
+@media (max-width: 480px) {
+  .card {
+    padding: 22px;
+    border-radius: 12px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .social-row {
+    gap: 8px;
+  }
+
+  .social-btn {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .input {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .btn-primary {
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+/* Em telas maiores, manter o card centralizado com mais espaço lateral */
+@media (min-width: 1200px) {
+  .page-wrapper {
+    padding: 60px 40px;
+  }
+}

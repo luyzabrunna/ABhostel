@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de úsuario</title>
+
+    <!-- Link para o arquivo CSS -->
+     <link rel="stylesheet" href="../assets/css/cadastro.css">
+</head>
+<body>
+    <!--
+    CONTEÚDO PRINCIPAL:
+    Usamos um wrapper para centarlizar o "card" e um <main> para o conteudo
+        -->
+    <div class="page-wrapper">
+        <main class="card" aria-labelledby="titulo-cadastro">
+            <!-- Cabeçalho do card: logo á esquerda e link Entrar á direita -->
+            <header class="card-header">
+            <!-- Aqui fica a logo do site -->
+            <img src="../Imagens/logo-02.svg" alt="logo do site" id="logo">
+            <!-- link para tela de login -->
+            <a class="link-entrar" href="#" aria-label="">Entrar</a>
+            </header>
+
+            <!-- Titulo principal -->
+            <h1 id="titulo-cadastro" class="title">Crie sua conta</h1>
+
+            <!-- Botões de cadastro social (Google / Apple / Facebook).-->
+            <div class="social-row" role="group" aria-label="Cadastro com redes sociais">
+              <button class="social-btn" type="button" aria-label="Continuar com Google">Google</button>
+              <button class="social-btn" type="button" aria-label="Continuar com Apple">Apple</button>
+              <button class="social-btn" type="button" aria-label="Continuar com Facebook">Facebook</button>  
+            </div>
+
+            <!-- Divisor de texto "ou cadastre com email" -->
+            <div class="divider">
+                <span>Ou cadastre com seu e-mail</span>
+            </div>
+
+            <!--Formulário principal-->
+            <form id="cadastroForm" class="form">
+            <!-- campo: Nome completo -->
+            <label class="label" for="nome">Nome completo</label>
+            <input class="input" id="nome" name="nome" type="text" placeholder="Seu nome" required/>
+
+            <!-- Campo: E-mail -->
+            <label class="label" for="email">E-mail</label>
+            <input class="input" id="email" name="email" type="email" placeholder="exemplo@email.com" required/>
+
+            <!-- Campo: Telefone -->
+            <label class="label" for="Senha">Telefone</label>
+            <input class="input" id="Telefone" name="telefone" type="tel" placeholder="(00) 9 9999-9999" required/>
+
+            <!-- Campo: Senha -->
+            <label class="label" for="Senha">Senha</label>
+            <input class="input" id="Senha" name="Senha" type="password" placeholder="Senha" required/>
+
+            <!-- Checkbox de termos -->
+            <div class="terms">
+                <input id="termos" name="termos" type="checkbox"/>
+                <label for="termos" class="terms-label">
+                    Concordo com os <a href="#" class="link-termos">Termos de Uso</a> e a <a href="#" class="link-termos">Política de Privacidade</a>
+                </label>
+            </div>
+
+            <!-- Botão principal: Cadastrar -->
+             <button class="btn-primary" type="submit">Cadastrar</button>
+            </form>
+
+            <!-- Link secundário do rodapé do card -->
+             <div class="card-footer">
+                <p class="have-accout">já possui conta? <a href="#" class="link-entrar">Entrar</a></p>
+
+                <nav class="small-links" aria-label="links legais">
+                    <a href="#">Termos de uso</a>
+                    <span aria-hidden="true">|</span>
+                    <a href="#">Política de Privacidade</a>
+                </nav>
+             </div>
+        </main>
+    </div>
+    
+</body>
+</html>
