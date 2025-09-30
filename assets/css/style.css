@@ -68,3 +68,103 @@ nav a {
     object-fit: cover;
     image-rendering: auto;
 }
+
+.banner-primario {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:white;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 900px;
+}
+
+.banner-primario h1 {
+    font-size: 2.5rem;
+    font-family: 'Montserrat Black',sans-serif;
+     margin-bottom: 10px;
+}
+
+.banner-primario p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Formulário de busca */
+.busca {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    padding:10px;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+.busca button {
+    background: #A78D78;
+    color:white;
+    font-weight:bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.busca input, .busca select, .busca button {
+    padding: 12px;
+    font-size: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    flex: 1;
+    min-width: 100px;
+}
+
+.busca button:hover {
+    background: #6e473b;
+}
+
+/* Resposividade */
+/* Tablets (até 768px)*/
+@media (max-width:768px) {
+    .banner {
+        height: 70vh;
+    }
+    .banner-primario h1{
+        font-size: 2.2rem;
+    }
+    .banner-primario p {
+        font-size: 1rem;
+    }
+    .busca {
+        flex-direction: row;
+        flex-wrap: wrap;  
+    }
+}
+
+/* Celulares (até 480px) */
+@media  (max-width:480px){
+    .banner {
+        height: 60vh;
+    }
+    .banner-primario h1 {
+        font-size: 1.6rem;
+    }
+    .banner-primario p {
+        font-size: 0.9rem;
+    }
+    .busca {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    busca input, .busca select, .busca button {
+        width: 100%;
+    }
+}
+    
+
+
+
+
+

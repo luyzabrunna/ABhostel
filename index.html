@@ -32,8 +32,32 @@
        </nav>
         <button class="btn open"><i class="fas fa-bars"></i></button>
     </header>
-    <div class="banner">
-        <img src="Imagens/banner.jpeg">
-    </div>
+    <section class="banner">
+      <img src="Imagens/banner.jpeg" alt="Banner principal">
+      <div class="banner-primario">
+        <h1> Encontre o lugar perfeito </h1>
+        <p> Viaje do seu jeito: curto, médio ou longo prazo </p>
+
+        <form class="busca">
+          <input type=" text" placeholder=" Digite o destino...">
+
+          <select>
+            <option value=""> Prazo </option>
+            <option value="curto"> Curto prazo </option>
+            <option value="medio"> Médio prazo </option>
+            <option value="longo"> Longo prazo </option>
+          </select>
+
+          <select>
+            <option value=""> Preço </option>
+            <option value="baixo"> até R$500 </option>
+            <option value="medio"> R$500 - R$1500</option>
+            <option value="longo"> Acima de R$1500 </option>
+          </select>
+
+          <button type="submit">Buscar</button>
+        </form>
+      </div>
+    </section>
   </body>
 </html>
