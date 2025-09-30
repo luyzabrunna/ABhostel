@@ -1,63 +1,66 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ABhostel - Página Inicial</title>
 
-    <!-- Fonte Mantserrat e Nunito-->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Nunito&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ABhostel - Página Inicial</title>
 
-    <!-- Link do css -->
-    <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Fonte Mantserrat e Nunito-->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Nunito&display=swap"
+    rel="stylesheet" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  </head>
-  <body>
-    <!-- Header - Cabeçalho -->
-    <header>
-      <div class="logo">
-        <a href="/ABhostel/index.html"><img src="Imagens/logo.png" alt="Logo ABhostel" /></a>
-      </div>
-      <!-- Menu Fixo -->
-       <nav>
-        <a href="#"><i class="fas fa-home"></i></i> Início</a>
-        <a href="#"><i class="fas fa-key"></i> Imóveis</a>
-        <a href="#"><i class="fas fa-star"></i> Experiências</a>
-        <a href="#"><i class="fas fa-address-card"></i> Sobre</a>
-        <a href="#"><i class="fas fa-phone-volume"></i>Contato</a>
-       </nav>
-        <button class="btn open"><i class="fas fa-bars"></i></button>
-    </header>
-    <section class="banner">
-      <img src="Imagens/banner.jpeg" alt="Banner principal">
-      <div class="banner-primario">
-        <h1> Encontre o lugar perfeito </h1>
-        <p> Viaje do seu jeito: curto, médio ou longo prazo </p>
+  <!-- Link do css -->
+  <link rel="stylesheet" href="assets/css/style.css" />
 
-        <form class="busca">
-          <input type=" text" placeholder=" Digite o destino...">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
 
-          <select>
-            <option value=""> Prazo </option>
-            <option value="curto"> Curto prazo </option>
-            <option value="medio"> Médio prazo </option>
-            <option value="longo"> Longo prazo </option>
-          </select>
+<body>
+  <!-- Header - Cabeçalho -->
+  <header>
+    <div class="logo">
+      <a href="/ABhostel/index.html"><img src="Imagens/logo.png" alt="Logo ABhostel" /></a>
+    </div>
+    <!-- Menu Fixo -->
+    <nav>
+      <a href="#"><i class="fas fa-home"></i></i> Início</a>
+      <a href="#"><i class="fas fa-key"></i> Imóveis</a>
+      <a href="#"><i class="fas fa-star"></i> Experiências</a>
+      <a href="#"><i class="fas fa-address-card"></i> Sobre</a>
+      <a href="#"><i class="fas fa-phone-volume"></i>Contato</a>
+    </nav>
+    <button class="btn open"><i class="fas fa-bars"></i></button>
+  </header>
+  <div class="banner">
+    <img src="Imagens/banner.jpeg" alt="Banner principal">
 
-          <select>
-            <option value=""> Preço </option>
-            <option value="baixo"> até R$500 </option>
-            <option value="medio"> R$500 - R$1500</option>
-            <option value="longo"> Acima de R$1500 </option>
-          </select>
+    <div class="banner-primario">
+      <h1> Encontre o lugar perfeito </h1>
+      <p> Viaje do seu jeito: curto, médio ou longo prazo </p>
 
-          <button type="submit">Buscar</button>
-        </form>
-      </div>
-    </section>
-  </body>
+      <form class="busca">
+        <input type="text" placeholder="Digite o destino...">
+
+        <select>
+          <option value="">Prazo</option>
+          <option value="curto">Curto prazo</option>
+          <option value="medio">Médio prazo</option>
+          <option value="longo">Longo prazo</option>
+        </select>
+
+        <select>
+          <option value="">Preço</option>
+          <option value="baixo">Até R$500</option>
+          <option value="medio">R$500 - R$1500</option>
+          <option value="alto">Acima de R$1500</option>
+        </select>
+
+        <button type="submit">Buscar</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+
 </html>

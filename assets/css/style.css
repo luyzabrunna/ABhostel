@@ -14,12 +14,14 @@ header {
     position: fixed;
     background-color: #A78D78;
     height: 50px;
-    width: 900px;
+    width: 80%;
+    max-width: 1100px;
     margin:0 auto;
     border-radius: 100px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0 15px;
     z-index: 999;
     left: 50%;
     transform: translateX(-50%);
@@ -28,7 +30,7 @@ header {
 
 .logo img {
     height: 120px;
-    position: relative;
+    /* position: relative; */
 }
 
 nav {
@@ -44,6 +46,7 @@ nav a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 0.9rem;
 }
 
 .btn {
@@ -51,9 +54,11 @@ nav a {
     all: unset;
     cursor: pointer;
     color: #fff;
+    display: none;
 }
 
 .banner {
+    position: relative;
     width: 90%;
     max-width: 1200px;
     height: 450px;
@@ -141,10 +146,22 @@ nav a {
         flex-direction: row;
         flex-wrap: wrap;  
     }
+
+    nav {
+        display: none;
+    }
+
+    .btn {
+        display: block;
+    }
 }
 
 /* Celulares (até 480px) */
 @media  (max-width:480px){
+    header {
+        width: 405px;
+    }
+
     .banner {
         height: 60vh;
     }
