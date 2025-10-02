@@ -1,0 +1,44 @@
+:root {
+    --marrom-escuro: #291C0E;
+    --marrom-medio:  #6E473B;
+    --marrom-claro:  #A78D78;
+    --bege-medio:    #BEB5A9;
+    --bege-claro:    #E1D4C2;
+    --texto-escuro:  #2B1F18;
+    --radius: 14px;
+    --max-width-card: 720px;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+html,body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter","Segoe UI", Arial, sans-serif;
+    background: var(--bege-claro);
+    color: var(--texto-escuro);
+    line-height: 1.4;
+}
+
+.page-wraper{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+.car {
+    width: 100%;
+    max-width: var(--max-width-card);
+    background: linear-gradient(180deg, rgba(190,181,169,0.9), rgba(167,141,120,0.9));
+    border-radius: calc(var(--radius)*1.2);
+    padding: 36px;
+    box-shadow: 0 10px ;
+    
+}
