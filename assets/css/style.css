@@ -406,7 +406,6 @@ nav a {
     filter: brightness(60%);
 }
 
-/* Container do texto */
 .banner-secundario {
     position: absolute;
     top: 50%;
@@ -450,17 +449,6 @@ nav a {
     margin-bottom: 20px;
     font-family: 'Nunito', sans-serif;
     color: white;
-}
-
-.vantagens {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0;
-}
-
-.vantagens li {
-    font-size: 1rem;
-    margin: 10px 0;
 }
 
 .btn-banner {
