@@ -41,7 +41,7 @@ nav {
 nav a {
     font-family: "Nunito", sans-serif;
     font-weight: 400;
-    color: #fff;
+    color: white;
     text-decoration: none;
     display: flex;
     flex-direction: column;
@@ -53,7 +53,7 @@ nav a {
     background: none;
     all: unset;
     cursor: pointer;
-    color: #fff;
+    color: white;
     display: none;
 }
 
@@ -110,7 +110,7 @@ nav a {
 }
 
 .busca button {
-    background: #A78D78;
+    background: #463822;
     color: white;
     font-weight: bold;
     cursor: pointer;
@@ -122,7 +122,7 @@ nav a {
 .busca button {
     padding: 12px;
     font-size: 0.8rem;
-    border: 1px solid #ccc;
+    border: 1px solid #463822;
     border-radius: 6px;
     flex: 1;
     min-width: 100px;
@@ -209,7 +209,7 @@ nav a {
     font-size: 24px;
     margin-left: 50px;
     margin-bottom: 35px;
-    color: white;
+    color: #463822;
     font-weight: bold;
     font-family: 'Montserrat Black', sans-serif;
 }
@@ -287,12 +287,12 @@ nav a {
 }
 
 .imoveis h2 {
-    width: 92%;
+     width: 93%;
     text-align: left;
     font-size: 24px;
-    margin-left: 50px;
-    margin-bottom: 35px;
-    color: white;
+    margin-left: 37px;
+    margin-bottom: 20px;
+    color: #463822;
     font-weight: bold;
     font-family: 'Montserrat Black', sans-serif;
 }
