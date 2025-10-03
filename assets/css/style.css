@@ -188,6 +188,8 @@ nav a {
     flex-wrap: wrap;
     gap: 15px;
     padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .categorias h2 {
@@ -267,11 +269,13 @@ nav a {
 }
 
 /* Container geral */
-.anuncios {
-  padding: 40px 20px;
+.imoveis {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.anuncios h2 {
+.imoveis h2 {
    /* width: 100%; */
    text-align: left;
    font-size: 24px;
@@ -282,8 +286,7 @@ nav a {
    font-family: 'Montserrat Black',sans-serif;
 }
 
-/* Grid dos cards */
-.opcoes-anuncios {
+.imoveis-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
@@ -291,10 +294,10 @@ nav a {
 }
 
 /* Cada card */
-.opcoes-anuncios > div {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+.imovel-card {
+  background: #A78D78;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   overflow: hidden;
   width: 100%;
   max-width: 250px;
@@ -302,49 +305,41 @@ nav a {
   transition: transform 0.2s;
 }
 
-.opcoes-anuncios > div:hover {
+.imovel-card:hover {
   transform: translateY(-5px);
 }
 
-/* Imagem */
-.opcoes-anuncios img {
+
+.imovel-card img {
   width: 100%;
   height: 160px;
   object-fit: cover;
-  display: block;
 }
 
-/* Título */
-.opcoes-anuncios h5 {
-  font-size: 18px;
-  margin: 10px 0 5px;
-  color: #463822;
+
+.imovel-card .info {
+    padding: 15px;
 }
 
-/* Preço e localização */
-.opcoes-anuncios p {
-  margin: 4px 0;
-  font-size: 14px;
-  color: #555;
+.imovel-card h3{
+    margin: 0;
+    font-size: 18px;
+
 }
 
-/* Responsividade */
-/* Tablet: 3 por linha */
-@media (max-width: 1024px) {
-  .opcoes-anuncios {
-    grid-template-columns: repeat(3, 1fr); 
-  }
+.imovel-card p {
+    font-size: 14px;
+    color:white;
+    margin: 5px;
+    font-family: 'Nunito',sans-serif;
 }
 
-/* Celular médio: 2 por linha */
-@media (max-width: 768px) {
-  .opcoes-anuncios {
-    grid-template-columns: repeat(2, 1fr); 
-  }
+.price {
+    color: white;
+    font-weight: bold;
+    margin-top: 10px;
+     font-family: 'Nunito',sans-serif;
+
 }
-/* Celular pequeno: 1 por linha */
-@media (max-width: 480px) {
-  .opcoes-anuncios {
-    grid-template-columns: repeat(2, 1fr); 
-  }
-}
+
+
