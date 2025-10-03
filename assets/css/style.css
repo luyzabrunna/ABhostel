@@ -483,3 +483,132 @@ nav a {
         font-size: 1rem;
     }
 }
+
+footer {
+  background: #A78D78;
+  color: white;
+  padding: 40px 20px 20px;
+  margin-top: 40px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.footer-footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  margin-bottom: 20px;
+  align-items: start;
+}
+
+.footer-logo-img {
+  max-width: 120px;   /* ajusta o tamanho da logo */
+  height: auto;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.footer-logo p {
+  font-size: 14px;
+  color: white;
+}
+
+.footer-links h4,
+.footer-social h4,
+.footer-newsletter h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin: 6px 0;
+}
+
+.footer-links a,
+.footer-social a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-links a:hover,
+.footer-social a:hover {
+  color: #463822;
+}
+
+.footer-social i {
+  margin-right: 6px;
+  color: #463822;
+}
+
+.footer-newsletter form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.footer-newsletter input {
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  flex: 1;
+  min-width: 180px;
+}
+
+.footer-newsletter button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  background: #463822;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.footer-newsletter button:hover {
+  background: #463822;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 12px;
+  border-top: 1px solid #6e473b;
+  padding-top: 15px;
+  color: #6e473b;
+  letter-spacing: 0.5px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .footer-container {
+    text-align: center;
+  }
+
+  .footer-logo {
+    text-align: center;
+  }
+
+  .footer-logo-img {
+    margin: 0 auto 10px;
+  }
+
+  .footer-newsletter form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-newsletter input,
+  .footer-newsletter button {
+    width: 100%;
+    max-width: 280px;
+  }
+}
