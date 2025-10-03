@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anuncie seu Imóvel</title>
+    <title>ABhostel - Anuncie seu Imóvel</title>
 
     <link rel="stylesheet" href="../assets/css/cadastro_imovel.css">
 
@@ -19,6 +19,8 @@
         <!-- Título principal-->
          <h1>Anuncie seu Imóvel</h1>
 
+         <form id="propertyListingForm">
+
          <!-- subtitulo  -->
           <h2 class="section-title">Imformações básicas do imóvel</h2>
 
@@ -30,6 +32,7 @@
 
              <!--caixa de seleção-->
              <select  name="propertyType" id="propertyType" required>
+                <option value="">Selecione</option>
                 <option value="Casa">Casa</option>
                 <option value="Apartamento">Apartamento</option>
                 <option value="Kitnet">Kitnet</option>
@@ -87,6 +90,7 @@
              <div class="form-group">
                 <label for="estado">Estado</label>
                 <select name="estado" id="estado" required>
+                    <option value="">Selecione</option>
                     <option value="Acre (AC)">Acre (AC)</option>
                     <option value="Alagoas (AL)">Alagoas (AL)</option>
                     <option value="Amapá (AP)">Amapá (AP)</option>
@@ -142,7 +146,7 @@
              </div>
 
              <!-- oque o imovel vai oferecer-->
-              <h2>O que o imóvel oferece</h2>
+              <h2 class="section-title">O que o imóvel oferece</h2>
               <fieldset>
                <legend>Facilidades</legend>
                <label><input type="checkbox" name="wi-fi">Wi-fi</label>
@@ -153,24 +157,67 @@
             
               </fieldset>
 
-              <!-- preço e período de aluguel-->
-               <h2>Preço e perído de aluguel</h2>
+              <!-- preço e data de aluguel-->
+               <h2 class="section-title">Preço e perído de aluguel</h2>
                <div class="form-group">
                   <label for="valor">valor(R$)</label>
                   <input type="number" id="valor" name="valor" min="1" required/>
                </div>
 
                <div class="form-group">
-                  <label for="periodo">período</label>
-                  <select name="periodo" id="periodo" required>
-                     <option value=""></option>
-
+                  <label for="periodo">Tipo de preço</label>
+                  <select name="tipo-preço" id="tipo-preço" required>
+                     <option value="">Selecione</option>
+                     <option value="noite">Por noite</option>
+                     <option value="semana">Por semana</option>
+                     <option value="mes">Por mês</option>
                   </select>
+            </div>
+            <!-- data-->
 
+            <div class="form-group">
+               <label for="data-inicio">Data de início</label>
+               <input type="date" id="data-inicio" name="data-inicio" required/>
+            </div>
+
+            <div class="form-group">
+               <label for="data-termino">Data de término</label>
+               <input type="date" id="data-termino" name="data-termino" required/>
+            </div>
+
+            <!-- contato do proprietario -->
+
+            <h2 class="section-title">Contato do proprietário</h2>
+            <div class="form-group">
+               <label for="whatsapp">Número do proprietario (WhatsApp)</label>
+               <input type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-000" required/>
+            </div>
+
+            <div class="form-group">
+               <label for="email-proprietario">Email(Opicional)</label>
+               <input type="email" id="email-proprietario" name="email-proprietario" placeholder="Seu@email.com"/>
+            </div>
+
+            <!-- fotos do imovel -->
+             <!-- selecionar fotos-->
+             <h2 class="section-title"></h2>
+             <div class="form-group">
+               <label for="fotos">Adicionar fotos</label>
+               <input type="file" id="fotos" name="fotos" accept="image/*" multiple/>
+             </div>
+
+             <!-- espaço para mostrar as fotos-->
+              <div id="preview-fotos">
+               <p>Pré-visualização das imagens aparecerá aqui após o upload.</p>
+              </div>
+              
+              <!-- Botões finais -->
+               <div class="form-actions">
+                  <button type="button" class="btn btn-draft">Salvar como rascunho</button>
+                  <button type="submit" class="btn btn-submit">Publicar anúncio</button>
                </div>
-
-
-
-    </div>
+          </form> 
+     </main>     
+ </div>
 </body>
 </html>

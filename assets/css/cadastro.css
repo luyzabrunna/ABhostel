@@ -280,9 +280,8 @@ body {
 
 /* Estado hover para desktop */
 .btn-primary:hover {
-  transform: scale(1.05) translateY(-2px);
-  filter: brightness(1.05);
-  background-color: var(--marrom-escuro);
+    background: #523a26;
+    transform: scale(1.05);
 }
 
 /* ========================
