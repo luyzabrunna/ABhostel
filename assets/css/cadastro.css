@@ -220,7 +220,7 @@ body {
   padding: 14px 16px;
   border-radius: 10px;
   border: 1.5px solid rgba(41,28,14,0.12);
-  background: rgba(190,181,169,0.95); /* bege meio */
+  background: rgba(255, 254, 252, 0.95); /* bege meio */
   font-size: 16px;
   color: var(--marrom-escuro);
   transition: box-shadow .12s ease, border-color .12s ease;

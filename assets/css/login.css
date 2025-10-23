@@ -1,0 +1,98 @@
+/*paleta de cores*/
+:root{
+    --marrom-escuro: #291C0E; 
+    --marrom-medio: #6E473B;
+    --marrom-claro: #A78D78;
+    --bege-medio: #BEB5A9;
+    --bege-claro: #E1D4C2;
+    --texto-escuro: #2B1F18;
+    --radius: 14px;
+    --max-widt-card: 720px;
+}
+
+/* RESET BÁSICO*/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*ESTILO BASE DO CORPO DA PAGINA*/
+body{
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bege-claro);
+    color: var(--texto-escuro);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/*WRAPPER: CENTRALIZA P CARD*/
+.page-wrapper{
+    min-height: 100vh; /*ocupa toda a altura da tela */
+    display: flex;     /*ativa Flexbox*/
+    align-items: center; /*centraliza verticalmente*/
+    justify-content: center;  /*centraliza horizontalmente*/
+    padding: 24px 16px;  /*espaçamento nas boradas*/
+}
+
+/* CARD PRINCIPAL(BLOCO QUE CONTÉM TODO O FORMULARIO DE LOGIN)*/
+.card {
+    width: 100%;
+    max-width: var(--max-widt-card);
+    background: linear-gradient(180deg, rgba(190,181,169,0.9), rgba(167,141,120,0.9));
+    border-radius: calc(var(--radius)*1.2);
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/*LOGO*/
+.logo {
+    text-align: center;
+}
+
+#logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 8px;
+}
+
+/*TITULO*/
+.title {
+    text-align: center;
+    font-size: 28px;
+    color: var(--marrom-medio);
+    margin: 0;
+}
+
+/*FORMULARIO*/
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+label {
+    font-size: 14px;
+    color: var(--marrom-medio);
+}
+
+/*estilos dos campos de entrada*/
+input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1.5px solid rgba(41,28,14,0.12);
+    font-size: 16px;
+    color: var(--marrom-escuro);
+}
+
+/*efeito quaqndo o campo está em foco*/
+input:focus {
+    outline: none;
+    border-color: var(--marrom-medio);
+    box-shadow: 0 4px 12px rgba(41,28,14,0.08);
+}
+
+/*ESQUECEU A SENHA?*/

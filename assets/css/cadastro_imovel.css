@@ -86,7 +86,7 @@ input, select, textarea {
     padding: 12px 14px; /*espaço interno*/
     border-radius: 10px; /*cantos arrendodados*/
     border: 1.5px solid rgba(41,28,14,0.12);
-    background: rgba(190,181,169,0.95);
+    background: rgba(255, 255, 255, 0.95);
     font-size: 1rem;
     color: var(--marrom-escuro);
 }
