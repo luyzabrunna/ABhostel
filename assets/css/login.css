@@ -96,3 +96,84 @@ input:focus {
 }
 
 /*ESQUECEU A SENHA?*/
+.forgot-password {
+    text-align: right; /*alinha o link a direita */
+}
+
+.link-termos{
+    color: var(--marrom-medio);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.link-termos:hover {
+    text-decoration: underline; /*sublinha ao passar o mouse*/
+}
+
+/*botão entrar*/
+.btn {
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 700;
+    font: 16px;
+    cursor: pointer;
+    border: none;
+    /*animação suave para todos os efeitos*/
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.btn-submit {
+    background: var(--marrom-escuro);
+    color: #f4f2f2;
+}
+
+/*efeito ao passar o mouse*/
+.btn-submit:hover {
+    background: #3a2a18;
+    transform: scale(1.05);
+}
+
+/*efeito ao clicar*/
+.btn:active {
+    transform: scale(0.98);
+}
+
+/*rodapé do card*/
+.card-footer {
+    text-align: center;
+    margin-top: 8px;
+}
+
+.have-account {
+    margin: 0;
+    color: var(--marrom-medio);
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.link-entrar {
+    color: var(--marrom-escuro);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.link-entrar:hover {
+    text-decoration: underline;
+}
+
+/*responsividade*/
+@media (max-width: 480px) {
+    .card{
+        padding: 28px 20px;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+
+    .btn {
+        width: 100%;
+        min-width: auto;
+    }
+}
