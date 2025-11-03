@@ -53,7 +53,7 @@ body{
 }
 
 #logo {
-    width: 150px;
+    width: 250px;
     height: auto;
     margin-bottom: 8px;
 }
@@ -61,8 +61,8 @@ body{
 /*TITULO*/
 .title {
     text-align: center;
-    font-size: 28px;
-    color: var(--marrom-medio);
+    font-size: 40px;
+    color: white;
     margin: 0;
 }
 

@@ -10,53 +10,202 @@ body {
     height: 100%;
 }
 
+/* --- MENU PRINCIPAL --- */
 header {
-    position: fixed;
-    background-color: #A78D78;
-    height: 50px;
-    width: 80%;
-    max-width: 1100px;
-    margin: 0 auto;
-    border-radius: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 15px;
-    z-index: 999;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 20px;
+  position: fixed;
+  background-color: #A78D78;
+  height: 60px;
+  width: 80%;
+  max-width: 1100px;
+  margin: 0 auto;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 999;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+header.scrolled {
+  background-color: #8c725e;
 }
 
 .logo img {
-    height: 120px;
-    /* position: relative; */
+  height: 100px;
+  cursor: pointer;
 }
 
 nav {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1.2rem;
 }
 
 nav a {
-    font-family: "Nunito", sans-serif;
-    font-weight: 400;
-    color: white;
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 12px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px;
+  transition: color 0.3s ease;
 }
 
+nav a:hover {
+  color: #ffefcf;
+}
+
+/* --- BOTÃO HAMBÚRGUER --- */
 .btn {
-    background: none;
-    all: unset;
-    cursor: pointer;
-    color: white;
-    display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  display: none;
+  font-size: 1.4rem;
 }
 
+/* --- BOTÃO ENTRAR / CADASTRE-SE (DESKTOP) --- */
+.btn-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #ffefcf; /* cor principal clara, igual ao hover dos outros links */
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  transition: color 0.3s ease;
+}
+
+.btn-login i {
+  font-size: 18px;
+  margin-bottom: 4px;
+  color: #ffefcf;
+  transition: color 0.3s ease;
+}
+
+/* Hover com leve destaque dourado/bege */
+.btn-login:hover {
+  color: #fff6db;
+}
+
+.btn-login:hover i {
+  color: #fff6db;
+}
+
+/* --- MENU MOBILE --- */
+.mobile-menu {
+  position: fixed;
+  top: 80px;
+  right: 10px;
+  width: 260px;
+  background-color: #A78D78;
+  border-radius: 15px;
+  transform: translateX(120%);
+  transition: transform 0.3s ease;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+.mobile-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s ease;
+}
+
+.mobile-links a:hover {
+  color: #ffefcf;
+}
+
+/* Linhas divisórias */
+.divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  margin: 8px 0;
+}
+
+.login-mobile {
+  color: #ffefcf;
+}
+
+/* Redes sociais */
+.mobile-social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+.mobile-social a {
+  color: #fff;
+}
+
+/* --- OVERLAY --- */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/*  RESPONSIVIDADE */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+
+  .btn-login {
+    display: none; /* esconde o botão fora do menu */
+  }
+
+  .btn {
+    display: block;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-menu {
+    display: none;
+  }
+
+  .menu-overlay {
+    display: none;
+  }
+}
 .banner {
     position: relative;
     width: 90%;

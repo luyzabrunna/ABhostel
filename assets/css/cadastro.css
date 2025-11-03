@@ -72,7 +72,7 @@ body {
 
 /* Logo*/
 #logo {
-  width: 150px; /* ajusta  o tamanho da imagem*/
+  width: 250px; /* ajusta  o tamanho da imagem*/
   height: auto; /* mantém a proporção*/
   float: left;  /* deixa a imagem a esquerda*/
   margin-right: 20px;
@@ -109,8 +109,8 @@ body {
 .title {
   text-align: center;
   margin: 8px 0 10px 0;
-  font-size: 32px;
-  color: var(--marrom-medio);
+  font-size: 40px;
+  color: white;
 }
 
 /* ========================

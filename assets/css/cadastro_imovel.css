@@ -29,6 +29,12 @@ body {
     line-height: 1.5;
 }
 
+
+
+.logo img {
+  height: 250px;
+  cursor: pointer;
+}
 /* Centraliza o card */
 .page-wrapper{
     min-height: 100vh;
@@ -55,14 +61,14 @@ body {
 .card h1 {
     text-align: center; /*centraliza*/
     font-size: 1.75rem;
-    color: var(--marrom-medio); /*espçamento embaixo*/
+    color: white; /*espçamento embaixo*/
     margin-bottom: 16px;
 }
 
 /*seção e formulario*/
 .section-title {
     font-size: 1.25rem;
-    color: var(--marrom-medio);
+    color: white;
     margin: 24px 0 16px;
     padding-bottom: 8px;
     border-bottom: 1px solid rgba(41,28,14,0.1);

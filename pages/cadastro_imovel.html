@@ -16,6 +16,15 @@
     <!-- conteudo principal da página. a classe card será u bloco elevado na sombra.-->    
     <main class="card">
 
+      <!-- Cabeçalho -->
+  <header class="header">
+    <div class="logo">
+      <a href="/ABhostel/index.html">
+        <img src="../Imagens/logo.png" alt="Logo ABhostel" />
+      </a>
+    </div>
+  </header>
+
         <!-- Título principal-->
          <h1>Anuncie seu Imóvel</h1>
 
@@ -38,6 +47,7 @@
                 <option value="Kitnet">Kitnet</option>
                 <option value="Suíte">Suíte</option>
                 <option value="Hotel">Hotel</option>
+                <option value="Chalé">Pousada</option>
                 <option value="Chalé">Chalé</option>
              </select>
            </div>
@@ -126,7 +136,7 @@
               <h2 class="section-title">Estrutura do imóvel</h2>
 
               <div class="form-group">
-                <label for="quartos">Número de quartos</label>
+                <label for="quartos">Quartos</label>
                 <input type="number" id="quartos" name="quartos" min="1" value="1" required/>
               </div>
 
@@ -134,15 +144,15 @@
                 <label for="suites">Suítes</label>
                 <input type="number" id="suites" name="suites" min="0" value="0"/>
             </div>
-
+            
             <div class="form-group">
-                <label for="capacidade">Capacidade de hóspedes</label>
-                <input type="number" id="capacidade" name="capacidade" min="1" value="1" placeholder="ex:5" required/>
+                <label for="banheiro">Banheiros</label>
+                <input type="number" id="banheiro" name="banheiro" min="1" value="1" required/>
              </div>
 
-             <div class="form-group">
-                <label for="banheiro">Número de banheiros</label>
-                <input type="number" id="banheiro" name="banheiro" min="1" value="1" required/>
+            <div class="form-group">
+                <label for="capacidade">Capacidade</label>
+                <input type="number" id="capacidade" name="capacidade" min="1" value="1" placeholder="ex:5" required/>
              </div>
 
              <!-- oque o imovel vai oferecer-->
