@@ -35,7 +35,7 @@ header.scrolled {
 }
 
 .logo img {
-  height: 100px;
+  height: 150px;
   cursor: pointer;
 }
 
@@ -358,7 +358,7 @@ nav a:hover {
     font-size: 24px;
     margin-left: 50px;
     margin-bottom: 35px;
-    color: #463822;
+    color: white;
     font-weight: bold;
     font-family: 'Montserrat Black', sans-serif;
 }
@@ -441,7 +441,7 @@ nav a:hover {
     font-size: 24px;
     margin-left: 37px;
     margin-bottom: 20px;
-    color: #463822;
+    color: white;
     font-weight: bold;
     font-family: 'Montserrat Black', sans-serif;
 }
