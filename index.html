@@ -6,176 +6,138 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ABhostel - Página Inicial</title>
 
-  <!-- Fonte Mantserrat e Nunito-->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Nunito&display=swap"
-    rel="stylesheet" />
+   <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Nunito&display=swap" rel="stylesheet" />
 
-  <!-- Link do css -->
+  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/style.css" />
 
+  <!-- Ícones -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-  <!-- Header - Cabeçalho -->
+  <!-- HEADER -->
   <header>
     <div class="logo">
-    <a href="/ABhostel/index.html"><img src="Imagens/logo.png" alt="Logo ABhostel"></a>
-  </div>
+      <a href="/ABhostel/index.html"><img src="Imagens/logo.png" alt="Logo ABhostel"></a>
+    </div>
 
-  <!-- Menu Desktop -->
-  <nav class="menu-desktop">
-    <a href="/ABhostel/index.html"><i class="fas fa-home"></i> Início</a>
-    <a href="/ABhostel/paginas/imoveis.html"><i class="fas fa-key"></i> Imóveis</a>
-    <a href="/ABhostel/pages/cadastro_imovel.html"><i class="fas fa-bullhorn"></i> Anuncie seu imóvel</a>
-  </nav>
+    <!-- MENU DESKTOP -->
+    <nav class="menu-desktop">
+      <ul class="menu-links">
+        <li><a href="/ABhostel/index.html" class="active">Início</a></li>
+        <li><a href="/ABhostel/paginas/imoveis.html">Imóveis</a></li>
+        <li><a href="/ABhostel/pages/cadastro_imovel.html">Anuncie seu imóvel</a></li>
+      </ul>
+      <a href="/ABhostel/pages/login.html" class="btn-login">Entrar / Cadastre-se</a> 
+    </nav>
 
-  <div class="menu-actions">
-  <!-- Ícone e texto empilhados -->
-  <a href="/ABhostel/pages/login.html" class="btn-login"><i class="fas fa-user"></i><span>Entrar / Cadastre-se</span></a>
-
-  <!-- Ícone do menu mobile -->
-  <button class="btn open" aria-label="Abrir menu"><i class="fas fa-bars"></i></button>
-</div>
+    <!-- ÍCONE MENU MOBILE -->
+    <button class="btn open" aria-label="Abrir menu"><i class="fas fa-bars"></i></button>
   </header>
-  <!-- Fundo escurecido (overlay) -->
-<div class="menu-overlay" aria-hidden="true"></div>
 
-<!-- Menu Mobile -->
-<div class="mobile-menu" aria-hidden="true">
-  <div class="mobile-links">
-    <a href="/ABhostel/index.html"><i class="fas fa-home"></i> Início</a>
+  <!-- OVERLAY E MENU MOBILE -->
+  <div class="menu-overlay" aria-hidden="true"></div>
+  <div class="mobile-menu" aria-hidden="true">
+    <div class="mobile-links">
+      <a href="/ABhostel/index.html"><i class="fas fa-home"></i> Início</a>
+      <hr class="divider">
+      <a href="/ABhostel/paginas/imoveis.html">Imóveis</a>
+      <a href="/ABhostel/pages/cadastro_imovel.html">Anuncie seu imóvel</a>
+      <hr class="divider">
+      <a href="/ABhostel/paginas/sobre.html">Sobre</a>
+      <a href="/ABhostel/paginas/contato.html">Contato</a>
+      <hr class="divider">
+      <a href="/ABhostel/pages/login.html" class="login-mobile">Entrar / Cadastre-se</a>
+    </div>
 
-    <hr class="divider">
-
-    <a href="/ABhostel/paginas/imoveis.html"><i class="fas fa-key"></i> Imóveis</a>
-    <a href="/ABhostel/pages/cadastro_imovel.html"><i class="fas fa-bullhorn"></i> Anuncie seu imóvel</a>
-
-    <hr class="divider">
-
-    <a href="/ABhostel/paginas/sobre.html"><i class="fas fa-address-card"></i> Sobre</a>
-    <a href="/ABhostel/paginas/contato.html"><i class="fas fa-phone-volume"></i> Contato</a>
-
-    <hr class="divider">
-    <a href="/ABhostel/pages/login.html" class="login-mobile"><i class="fas fa-user"></i> Entrar / Cadastre-se</a>
+    <div class="mobile-social">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
   </div>
 
-  <div class="mobile-social">
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-  </div>
-</div>
+  <!-- BANNER PRINCIPAL -->
   <div class="banner">
     <img src="Imagens/banner.jpeg" alt="Banner principal">
 
     <div class="banner-primario">
-      <h1> Encontre o lugar perfeito </h1>
-      <p> Viaje do seu jeito: curto, médio ou longo prazo </p>
+      <h1>Encontre o lugar perfeito</h1>
+      <p>Viaje do seu jeito: curto, médio ou longo prazo</p>
 
-      <form class="busca">
-        <input type="text" placeholder="Digite o destino...">
+      <form class="busca" action="" method="post">
+        <div>
+          <label>Localização</label>
+          <input type="text" placeholder="Onde você está indo?">
+        </div>
 
-        <select>
-          <option value="">Prazo</option>
-          <option value="curto">Curto prazo</option>
-          <option value="medio">Médio prazo</option>
-          <option value="longo">Longo prazo</option>
-        </select>
+        <div>
+          <label>Data Inicial</label>
+          <input type="text" placeholder="Adicione a data">
+        </div>
 
-        <select>
-          <option value="">Preço</option>
-          <option value="baixo">Até R$500</option>
-          <option value="medio">R$500 - R$1500</option>
-          <option value="alto">Acima de R$1500</option>
-        </select>
-        <button type="submit">Buscar</button>
+        <div>
+          <label>Data Final</label>
+          <input type="text" placeholder="Adicione a data">
+        </div>
+
+        <div>
+          <label>Quem</label>
+          <input type="text" placeholder="Adicionar hóspedes">
+        </div>
+
+        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
       </form>
     </div>
   </div>
 
-  <section class="categorias">
-    <h2>Escolha seu imóvel</h2>
-
-    <div class="opcoes-categoria">
-      <div class="categoria">
-        <i class="fas fa-home"></i>
-        <span>Casa</span>
-      </div>
-
-      <div class="categoria">
-        <i class="fas fa-building"></i>
-        <span>Apartamento</span>
-      </div>
-
-      <div class="categoria">
-        <i class="fas fa-warehouse"></i>
-        <span>Kitnet</span>
-      </div>
-
-      <div class="categoria">
-        <i class="fas fa-door-open"></i>
-        <span>Suíte</span>
-      </div>
-
-      <div class="categoria">
-        <i class="fas fa-hotel"></i>
-        <span>Hotel</span>
-      </div>
-
-      <div class="categoria">
-        <i class="fas fa-leaf"></i>
-        <span>Pousada</span>
-      </div>
-
-      <div class="categoria">
-        <i class="fas fa-mountain"></i>
-        <span>Chalé</span>
-      </div>
-      <!-- Botão de filtros -->
-      <button class="filtro"><i class="fas fa-sliders-h"></i> Filtros</button>
-    </div>
-  </section>
-
+  <!-- IMÓVEIS -->
   <section class="imoveis">
     <h2>Imóveis em destaque</h2>
     <div class="imoveis-grid">
       <div class="imovel-card">
-        <button>
-          <i class="fas fa-heart"></i>
-        </button>
-        <img src="Imagens/casa1.jpeg" alt=" Casa na cidade">
+        <button class="favorito"><i class="fas fa-heart"></i></button>
+        <img src="Imagens/casa1.jpeg" alt="Casa na cidade">
         <div class="info">
           <h3>Casa na Cidade</h3>
           <p>Palmas - TO</p>
           <p class="price">R$1.500/mês</p>
         </div>
       </div>
+
       <div class="imovel-card">
-        <img src="Imagens/ap1.jpeg" alt=" Apartamento no centro ">
+         <button class="favorito"><i class="fas fa-heart"></i></button>
+        <img src="Imagens/ap1.jpeg" alt="Apartamento no centro">
         <div class="info">
           <h3>Apartamento no Centro</h3>
           <p>Palmas - TO</p>
           <p class="price">R$2.000/mês</p>
         </div>
       </div>
+
       <div class="imovel-card">
-        <img src="Imagens/kitnet1.jpeg" alt=" Kitnet">
+         <button class="favorito"><i class="fas fa-heart"></i></button>
+        <img src="Imagens/kitnet1.jpeg" alt="Kitnet">
         <div class="info">
           <h3>Kitnet</h3>
-          <p>Araguaina - TO</p>
+          <p>Araguaína - TO</p>
           <p class="price">R$700/mês</p>
         </div>
       </div>
+
       <div class="imovel-card">
-        <img src="Imagens/suíte1.jpeg" alt="suíte clean">
+         <button class="favorito"><i class="fas fa-heart"></i></button>
+        <img src="Imagens/suíte1.jpeg" alt="Suíte Clean">
         <div class="info">
           <h3>Suíte Clean</h3>
           <p>Sorriso - MT</p>
           <p class="price">R$150/noite</p>
         </div>
       </div>
-      <div class="imovel-card">
+       <div class="imovel-card">
+         <button class="favorito"><i class="fas fa-heart"></i></button>
         <img src="Imagens/hotel1.jpeg" alt=" hotel go">
         <div class="info">
           <h3>Hotel Go</h3>
@@ -183,7 +145,8 @@
           <p class="price">R$150/noite</p>
         </div>
       </div>
-      <div class="imovel-card">
+        <div class="imovel-card">
+        <button class="favorito"><i class="fas fa-heart"></i></button>
         <img src="Imagens/pousada1.jpeg" alt=" Pousada dos monte">
         <div class="info">
           <h3>Pousada dos Monte</h3>
@@ -192,6 +155,7 @@
         </div>
       </div>
       <div class="imovel-card">
+        <button class="favorito"><i class="fas fa-heart"></i></button>
         <img src="Imagens/Chalé1.jpeg" alt=" chalé de madeira">
         <div class="info">
           <h3>Chalé de Madeira</h3>
@@ -199,7 +163,8 @@
           <p class="price">R$190/noite</p>
         </div>
       </div>
-      <div class="imovel-card">
+       <div class="imovel-card">
+        <button class="favorito"><i class="fas fa-heart"></i></button>
         <img src="Imagens/casa2.jpeg" alt=" Casa colina">
         <div class="info">
           <h3>Casa Colinas</h3>
@@ -210,34 +175,29 @@
     </div>
   </section>
 
+  <!-- SEGUNDO BANNER -->
   <section class="banner-segundo">
-    <img src="Imagens/banner2.jpeg" alt="Sala acochegante" class="banner-img">
-
+    <img src="Imagens/banner2.jpeg" alt="Sala aconchegante" class="banner-img">
     <div class="banner-secundario">
-      <!-- ESQUERDA -->
       <div class="texto-esquerda">
         <h2>Conectando viajantes em destinos além do óbvio</h2>
       </div>
 
-      <!-- DIREITA -->
       <div class="texto-direita">
-        <p>No ABhostel, você encontra pousadas, casas de campo e chalés em regiões menos urbanizadas, com opções de
-          estadia flexíveis.</p>
-
+        <p>No ABhostel, você encontra pousadas, casas de campo e chalés em regiões menos urbanizadas, com opções de estadia flexíveis.</p>
         <a href="#imoveis" class="btn-banner">Conheça nossos imóveis</a>
       </div>
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-footer">
-      <!-- Logo + descrição -->
       <div class="footer-logo">
         <img src="Imagens/logo.png" alt="Logo ABhostel" class="footer-logo-img">
         <p>Hospedagem simples, acessível e acolhedora.</p>
       </div>
 
-      <!-- Links -->
       <div class="footer-links">
         <h4>Menu</h4>
         <ul>
@@ -249,7 +209,6 @@
         </ul>
       </div>
 
-      <!-- Redes sociais -->
       <div class="footer-social">
         <h4>Siga-nos</h4>
         <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a><br>
@@ -257,7 +216,6 @@
         <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
       </div>
 
-      <!-- Newsletter -->
       <div class="footer-newsletter">
         <h4>Receba novidades</h4>
         <form>

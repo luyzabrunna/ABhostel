@@ -1,783 +1,465 @@
+/* ==========================
+   RESET E CONFIGURAÇÕES GERAIS
+========================== */
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #e1d4c2;
-    width: 100%;
-    height: 100%;
+  font-family: "Nunito", sans-serif;
+  background-color: #e1d4c2;
+  width: 100%;
+  height: 100%;
+  border-radius: 120%;
+  overflow-x: hidden;
 }
 
-/* --- MENU PRINCIPAL --- */
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==========================
+   HEADER FIXO
+========================== */
 header {
   position: fixed;
-  background-color: #A78D78;
+  top: 0;
+  background-color: #e1d4c2;
   height: 60px;
-  width: 80%;
-  max-width: 1100px;
-  margin: 0 auto;
-  border-radius: 100px;
+  width: 100%;
+  border-radius: 2px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 0 20px;
-  z-index: 999;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 20px;
-  transition: background-color 0.3s ease;
-}
-
-header.scrolled {
-  background-color: #8c725e;
+  z-index: 1000;
 }
 
 .logo img {
-  height: 150px;
+  height: 120px;
   cursor: pointer;
 }
 
-nav {
+.menu-desktop {
   display: flex;
-  gap: 1.2rem;
-}
-
-nav a {
-  font-family: "Nunito", sans-serif;
-  font-weight: 600;
-  color: white;
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  font-size: 13px;
-  transition: color 0.3s ease;
+  gap: 30px;
 }
 
-nav a:hover {
-  color: #ffefcf;
+.menu-links {
+  display: flex;
+  gap: 20px;
 }
 
-/* --- BOTÃO HAMBÚRGUER --- */
-.btn {
+.menu-links a {
+  font-size: 14px;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.menu-links a:hover,
+.menu-links a.active {
+  color: #f3e6d0;
+}
+
+.btn-login {
+  background-color: #f3e6d0;
+  color: #4a3c2f;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.btn-login:hover {
+  background-color: #fff;
+}
+
+/* ÍCONE MENU MOBILE */
+.btn.open {
   background: none;
   border: none;
+  font-size: 24px;
+  color: #fff;
   cursor: pointer;
-  color: white;
   display: none;
-  font-size: 1.4rem;
 }
 
-/* --- BOTÃO ENTRAR / CADASTRE-SE (DESKTOP) --- */
-.btn-login {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: #ffefcf; /* cor principal clara, igual ao hover dos outros links */
-  font-family: "Nunito", sans-serif;
-  font-weight: 700;
-  font-size: 13px;
-  transition: color 0.3s ease;
+/* ==========================
+   MENU MOBILE
+========================== */
+.menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 999;
 }
 
-.btn-login i {
-  font-size: 18px;
-  margin-bottom: 4px;
-  color: #ffefcf;
-  transition: color 0.3s ease;
-}
-
-/* Hover com leve destaque dourado/bege */
-.btn-login:hover {
-  color: #fff6db;
-}
-
-.btn-login:hover i {
-  color: #fff6db;
-}
-
-/* --- MENU MOBILE --- */
 .mobile-menu {
   position: fixed;
-  top: 80px;
-  right: 10px;
+  top: 0;
+  right: -100%;
   width: 260px;
-  background-color: #A78D78;
-  border-radius: 15px;
-  transform: translateX(120%);
-  transition: transform 0.3s ease;
-  padding: 20px;
+  height: 100vh;
+  background-color: #a78d78;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
-  z-index: 1001;
+  justify-content: space-between;
+  padding: 20px;
+  z-index: 1000;
+  transition: right 0.4s ease;
 }
 
 .mobile-menu.open {
-  transform: translateX(0);
-}
-
-.mobile-links {
-  display: flex;
-  flex-direction: column;
+  right: 0;
 }
 
 .mobile-links a {
-  color: #fff;
-  text-decoration: none;
+  display: block;
+  color: white;
   font-size: 16px;
-  font-weight: 600;
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: color 0.3s ease;
+  margin: 10px 0;
 }
 
-.mobile-links a:hover {
-  color: #ffefcf;
-}
-
-/* Linhas divisórias */
 .divider {
-  border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
-  margin: 8px 0;
+  border: 0;
+  height: 1px;
+  background-color: #fff;
+  margin: 10px 0;
 }
 
-.login-mobile {
-  color: #ffefcf;
-}
-
-/* Redes sociais */
 .mobile-social {
   display: flex;
   justify-content: center;
   gap: 15px;
-  font-size: 1.5rem;
-  margin-top: 10px;
 }
 
 .mobile-social a {
-  color: #fff;
+  color: white;
+  font-size: 20px;
 }
 
-/* --- OVERLAY --- */
-.menu-overlay {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease;
-  z-index: 1000;
-}
-
-.menu-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-/*  RESPONSIVIDADE */
-@media (max-width: 768px) {
-  nav {
-    display: none;
-  }
-
-  .btn-login {
-    display: none; /* esconde o botão fora do menu */
-  }
-
-  .btn {
-    display: block;
-  }
-}
-
-@media (min-width: 769px) {
-  .mobile-menu {
-    display: none;
-  }
-
-  .menu-overlay {
-    display: none;
-  }
-}
+/* ==========================
+   BANNER PRINCIPAL
+========================== */
 .banner {
-    position: relative;
-    width: 90%;
-    max-width: 1200px;
-    height: 450px;
-    overflow: hidden;
-    border-radius: 20px;
-    margin: 45px auto 0 auto;
+  width: 95%;
+  height: 550px;
+  position: relative;
+  margin-top: 110px;
+  overflow: hidden;
+  border-radius: 50px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .banner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    image-rendering: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
 }
 
 .banner-primario {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-align: center;
-    padding: 20px;
-    width: 100%;
-    max-width: 900px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  width: 90%;
+  max-width: 900px;
 }
 
 .banner-primario h1 {
-    font-size: 2.5rem;
-    font-family: 'Montserrat Black', sans-serif;
-    margin-bottom: 10px;
+  font-size: 42px;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 10px;
 }
 
 .banner-primario p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  margin-bottom: 25px;
 }
 
-/* Formulário de busca */
+/* FORMULÁRIO DE BUSCA */
 .busca {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 10px;
-    border-radius: 10px;
-    justify-content: center;
+  display: flex;
+  background-color: #fff;
+  border-radius: 50px;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.busca div {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  flex: 1;
+  min-width: 120px;
+}
+
+.busca label {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 3px;
+}
+
+.busca input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #333;
+  background: transparent;
 }
 
 .busca button {
-    background: #463822;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.busca input,
-.busca select,
-.busca button {
-    padding: 12px;
-    font-size: 0.8rem;
-    border: 1px solid #463822;
-    border-radius: 6px;
-    flex: 1;
-    min-width: 100px;
+  background-color: #a78d78;
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .busca button:hover {
-    background: #6e473b;
+  background-color: #8e7563;
 }
 
-/* Resposividade */
-/* Tablets (até 768px)*/
-@media (max-width:768px) {
-    .banner {
-        height: 70vh;
-    }
-
-    .banner-primario h1 {
-        font-size: 2.2rem;
-    }
-
-    .banner-primario p {
-        font-size: 1rem;
-    }
-
-    .busca {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    nav {
-        display: none;
-    }
-
-    .btn {
-        display: block;
-    }
-}
-
-/* Celulares (até 480px) */
-@media (max-width:480px) {
-    header {
-        width: 99%;
-    }
-
-    .banner {
-        height: 60vh;
-    }
-
-    .banner-primario h1 {
-        font-size: 1.6rem;
-    }
-
-    .banner-primario p {
-        font-size: 0.9rem;
-    }
-
-    .busca {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    busca input,
-    .busca select,
-    .busca button {
-        width: 100%;
-    }
-}
-
-/* Categorias */
-.categorias {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    padding: 60px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.categorias h2 {
-    width: 93%;
-    text-align: left;
-    font-size: 24px;
-    margin-left: 50px;
-    margin-bottom: 35px;
-    color: white;
-    font-weight: bold;
-    font-family: 'Montserrat Black', sans-serif;
-}
-
-/* Grid responsivo */
-.opcoes-categoria {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-    align-items: center;
-    padding-bottom: 10px;
-}
-
-/* Cada categoria */
-.categoria {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: transform 0.2s, background 0.3s;
-    background: #A78D78;
-    padding: 10px;
-    border-radius: 8px;
-    width: 115px;
-    text-align: center;
-}
-
-.categoria:hover {
-    background: #d2c1a9;
-    transform: translateY(-2px);
-}
-
-.categoria i {
-    font-size: 32px;
-    color: #fff;
-    margin-bottom: 5px;
-}
-
-.categoria span {
-    font-size: 12px;
-    font-weight: 400;
-    color: #ffffff;
-    font-family: 'Nunito', sans-serif;
-}
-
-/* Botão de filtro */
-.filtro {
-    flex: 0 0 auto;
-    background: #463822;
-    color: #ffffff;
-    border: none;
-    padding: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    width: 115px;
-    justify-content: center;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 400;
-}
-
-.filtro i {
-    font-size: 14px;
-}
-
-/* Container geral */
+/* ==========================
+   SEÇÃO IMÓVEIS
+========================== */
 .imoveis {
-    padding: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
+  text-align: center;
+  margin: 60px auto;
+  width: 95%;
 }
 
 .imoveis h2 {
-     width: 93%;
-    text-align: left;
-    font-size: 24px;
-    margin-left: 37px;
-    margin-bottom: 20px;
-    color: white;
-    font-weight: bold;
-    font-family: 'Montserrat Black', sans-serif;
+  font-size: 26px;
+  color: #4a3c2f;
+  margin-bottom: 30px;
 }
 
 .imoveis-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
 }
 
-/* Cada card */
 .imovel-card {
-    background: #A78D78;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 100%;
-    max-width: 250px;
-    text-align: center;
-    transition: transform 0.2s;
-    position: relative;
+  background-color: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: transform 0.3s;
 }
 
 .imovel-card:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 .imovel-card img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
 }
 
-/* Botão de favorito */
-.favorito {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: nome;
-    border: none;
-    cursor: pointer;
-    z-index: 2;
-}
-.favorito i {
-    font-size: 22px;
-    color: white;
-    transition: color 0.3s, transform 0.2s;
-}
-
-/* Quando o imóvel estiver marcado como favorito*/
-.favorito.ativo i {
-    color: red;
-    transform: scale(1.2);
-}
 .imovel-card .info {
-    padding: 15px;
+  padding: 10px;
 }
 
 .imovel-card h3 {
-    margin: 0;
-    font-size: 18px;
-    font-family: 'Montserrat Black', sans-serif;
-    color: white;
-
+  font-size: 18px;
+  color: #4a3c2f;
 }
 
 .imovel-card p {
-    font-size: 14px;
-    color: white;
-    margin: 5px;
-    font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  color: #7a6a5a;
 }
 
 .price {
-    color: white;
-    font-weight: bold;
-    margin-top: 10px;
-    font-family: 'Nunito', sans-serif;
-
+  font-weight: bold;
+  color: #a78d78;
+  margin-top: 5px;
 }
 
-/* Ajustes extras para telas pequenas */
-@media (max-width: 768xp) {
-    .imoveis {
-        padding: 20px;
-    }
-
-    .imovel-card img {
-        height: 150px;
-    }
-
-    .imovel-card h3 {
-        font-size: 13px;
-    }
-
-    .imovel-card p {
-        font-size: 13px;
-    }
+.favorito {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  color: #a78d78;
 }
 
-@media (max-width: 480xp) {
-    .imoveis h2 {
-        font-size: 18px;
-    }
-
-    .imovel-card {
-        border-radius: 8px;
-    }
-
-    .imovel-card img {
-        height: 120px;
-    }
-}
-
+/* ==========================
+   SEGUNDO BANNER
+========================== */
 .banner-segundo {
-    position: relative;
-    overflow: hidden;
-    width: 90%;
-    max-width: 1200px;
-    height: 450px;
-    border-radius: 20px;
-    margin: 45px auto 0 auto;
+  width: 95%;
+  height: 550px;
+  position: relative;
+  margin-top: 110px;
+  overflow: hidden;
+  border-radius: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 5%;
 }
 
-.banner-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    image-rendering: auto;
-    filter: brightness(60%);
+.banner-segundo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  filter: brightness(50%);
 }
 
 .banner-secundario {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 20px;
-}
-
-/* Esquerda */
-.texto-esquerda {
-    width: 45%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .texto-esquerda h2 {
-    font-size: 2.2rem;
-    font-family: 'Montserrat Black', sans-serif;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: left;
-    font-family: 'Montserrat Black', sans-serif;
-    color: white;
-}
-
-/* Direita */
-.texto-direita {
-    width: 45%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    text-align: right;
-    font-family: 'Nunito', sans-serif;
-    color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 26px;
+  color: #fff;
 }
 
 .texto-direita p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    font-family: 'Nunito', sans-serif;
-    color: white;
+  color: #fff;
+  margin-bottom: 15px;
 }
 
 .btn-banner {
-    margin-top: 15px;
-    padding: 12px 25px;
-    border-radius: 12px 25px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-    .banner-secundario {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .texto-esquerda,
-    .texto-direita {
-        width: 100%;
-        align-items: center;
-        text-align: center;
-    }
-
-    .texto-esquerda h2 {
-        font-size: 1.6rem;
-    }
-
-    .texto-direita p {
-        font-size: 1rem;
-    }
-}
-
-footer {
-  background: #A78D78;
+  background-color: #a78d78;
   color: white;
-  padding: 40px 20px 20px;
-  margin-top: 40px;
-  font-family: 'Nunito', sans-serif;
+  padding: 8px 14px;
+  border-radius: 20px;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+footer {
+  background-color: #a78d78;
+  color: white;
+  padding: 40px 0 20px;
+  border-radius: 40px 40px 0 0;
 }
 
 .footer-footer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 30px;
-  margin-bottom: 20px;
-  align-items: start;
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .footer-logo-img {
-  max-width: 120px;   /* ajusta o tamanho da logo */
-  height: auto;
+  width: 100px;
   margin-bottom: 10px;
-  display: block;
 }
 
-.footer-logo p {
-  font-size: 14px;
+.footer-links a {
   color: white;
+  display: block;
+  margin: 5px 0;
 }
 
-.footer-links h4,
-.footer-social h4,
-.footer-newsletter h4 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 900;
-  margin-bottom: 10px;
-  font-size: 16px;
-  color: #fff;
-}
-
-.footer-links ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-links ul li {
-  margin: 6px 0;
-}
-
-.footer-links a,
 .footer-social a {
   color: white;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.footer-links a:hover,
-.footer-social a:hover {
-  color: #463822;
-}
-
-.footer-social i {
-  margin-right: 6px;
-  color: #463822;
-}
-
-.footer-newsletter form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
 }
 
 .footer-newsletter input {
+  width: 100%;
   padding: 8px;
   border: none;
-  border-radius: 4px;
-  font-size: 14px;
-  flex: 1;
-  min-width: 180px;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .footer-newsletter button {
-  padding: 8px 12px;
+  background-color: #f3e6d0;
   border: none;
-  border-radius: 4px;
-  background: #463822;
-  color: white;
+  color: #4a3c2f;
+  padding: 6px 12px;
+  border-radius: 5px;
   cursor: pointer;
-  font-weight: bold;
-  transition: background 0.2s;
-}
-
-.footer-newsletter button:hover {
-  background: #463822;
 }
 
 .footer-bottom {
   text-align: center;
-  font-size: 12px;
-  border-top: 1px solid #6e473b;
-  padding-top: 15px;
-  color: #6e473b;
-  letter-spacing: 0.5px;
+  margin-top: 30px;
+  font-size: 14px;
 }
 
-/* Responsividade */
+/* ==========================
+   RESPONSIVIDADE
+========================== */
+
+/* MOBILE */
 @media (max-width: 768px) {
-  .footer-container {
-    text-align: center;
+  .menu-desktop {
+    display: none;
   }
 
-  .footer-logo {
-    text-align: center;
+  .btn.open {
+    display: block;
   }
 
-  .footer-logo-img {
-    margin: 0 auto 10px;
+  .banner-primario h1 {
+    font-size: 28px;
   }
 
-  .footer-newsletter form {
+  .busca {
     flex-direction: column;
-    align-items: center;
+    border-radius: 20px;
+    padding: 20px;
   }
 
-  .footer-newsletter input,
-  .footer-newsletter button {
+  .busca button {
     width: 100%;
-    max-width: 280px;
+    border-radius: 20px;
+  }
+
+  .banner-segundo {
+    flex-direction: column;
+  }
+
+  .banner-segundo img {
+    width: 100%;
+  }
+
+  .footer-footer {
+    text-align: center;
   }
 }
