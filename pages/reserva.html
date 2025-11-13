@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserva - ABhostel</title>
+
+  <!-- Fontes e ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Nunito&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../assets/css/reserva.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <a href="/ABhostel/index.html"><img src="img/logo.png" alt="Logo ABhostel"></a>
+    </div>
+
+    <!-- Menu Desktop -->
+    <nav class="menu-desktop">
+      <a href="/ABhostel/index.html"><i class="fas fa-home"></i> Início</a>
+      <a href="/ABhostel/paginas/imoveis.html"><i class="fas fa-key"></i> Imóveis</a>
+      <a href="/ABhostel/pages/cadastro_imovel.html"><i class="fas fa-bullhorn"></i> Anuncie seu imóvel</a>
+    </nav>
+
+    <div class="menu-actions">
+      <a href="/ABhostel/pages/login.html" class="btn-login"><i class="fas fa-user"></i><span> Entrar / Cadastre-se</span></a>
+      <button class="btn open" aria-label="Abrir menu"><i class="fas fa-bars"></i></button>
+    </div>
+  </header>
+
+  <!-- Overlay e Menu Mobile -->
+  <div class="menu-overlay" aria-hidden="true"></div>
+
+  <div class="mobile-menu" aria-hidden="true">
+    <div class="mobile-links">
+      <a href="/ABhostel/index.html"><i class="fas fa-home"></i> Início</a>
+      <hr class="divider">
+      <a href="/ABhostel/paginas/imoveis.html"><i class="fas fa-key"></i> Imóveis</a>
+      <a href="/ABhostel/pages/cadastro_imovel.html"><i class="fas fa-bullhorn"></i> Anuncie seu imóvel</a>
+      <hr class="divider">
+      <a href="/ABhostel/paginas/sobre.html"><i class="fas fa-address-card"></i> Sobre</a>
+      <a href="/ABhostel/paginas/contato.html"><i class="fas fa-phone-volume"></i> Contato</a>
+      <hr class="divider">
+      <a href="/ABhostel/pages/login.html" class="login-mobile"><i class="fas fa-user"></i> Entrar / Cadastre-se</a>
+    </div>
+
+    <div class="mobile-social">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+  </div>
+
+  <!-- ✅ Container principal com espaçamento padrão do site -->
+  <section class="imoveis">
+    <div class="imovel-header">
+      <h1 class="imovel-nome">Casa à Beira-Mar com Vista Panorâmica</h1>
+
+      <div class="container-fotos">
+        <img src="../Imagens/casa1.jpeg" alt="Foto do Imóvel" class="imovel-foto">
+
+        <div class="galeria-fotos">
+          <img src="../Imagens/hotel1.jpeg" alt="Foto 1" class="miniatura">
+          <img src="../Imagens/suíte1.jpeg" alt="Foto 2" class="miniatura">
+          <img src="../Imagens/kitnet1.jpeg" alt="Foto 3" class="miniatura">
+          <img src="../Imagens/Chalé1.jpeg" alt="Foto 4" class="miniatura">
+        </div>
+        
+      </div>
+      
+  
+    </div><!-- === BLOCO EMBAIXO DAS FOTOS - COM DOIS LADOS (ESQUERDA E DIREITA) === -->
+<div class="bloco-informacoes-reserva">
+
+  <!-- COLUNA DA ESQUERDA: Informações do Anúncio -->
+  <div class="coluna-esquerda">
+
+    <h2 class="descricao-nome">Espaço inteiro: apartamento em Paris, França</h2>
+    <p>2 hóspedes · 1 quarto · 1 cama · 1 banheiro</p>
+    <p><strong>★ 5,0</strong> · <a href="#">4 comentários</a></p>
+
+    <hr class="divisoria">
+
+    <div class="espacamento-inicial">
+      <i class="fas fa-key icone-item"></i>
+      <div>
+        <strong>Experiência de check-in excepcional</strong><br>
+        Hóspedes recentes deram 5 estrelas para o processo de check-in.
+      </div>
+    </div>
+
+    <div class="espacamento-inicial">
+      <i class="fas fa-location-dot icone-item"></i>
+      <div>
+        <strong>Localização imbatível</strong><br>
+        100% dos hóspedes nos últimos 12 meses deram 5 estrelas para a localização.
+      </div>
+    </div>
+
+    <div class="espacamento-inicial">
+      <i class="fas fa-calendar-check icone-item"></i>
+      <div>
+        <strong>Cancelamento gratuito antes de 25 de fevereiro</strong><br>
+        Receba um reembolso integral se mudar de ideia.
+      </div>
+    </div>
+
+    <p class="texto-pequeno texto-secundario texto-centro">
+      Algumas informações foram traduzidas automaticamente. <a href="#">Exibir original</a>
+    </p>
+
+  </div>
+
+  <!-- COLUNA DA DIREITA: Formulário de Reserva -->
+  <div class="coluna-direita">
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+      <h3>R$1.473 por 2 noites</h3>
+      <span class="preco-destaque">❤️ Os preços incluem todas as taxas</span>
+    </div>
+
+    <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+      <div style="flex: 1;">
+        <label style="display: block; font-size: 0.8em; color: #666;">CHECK-IN</label>
+        <input type="text" value="27/03/2026">
+      </div>
+      <div style="flex: 1;">
+        <label style="display: block; font-size: 0.8em; color: #666;">CHECKOUT</label>
+        <input type="text" value="29/03/2026">
+      </div>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label style="display: block; font-size: 0.8em; color: #666;">HÓSPEDES</label>
+      <select>
+        <option>1 hóspede</option>
+        <option>2 hóspedes</option>
+        <option>3 hóspedes</option>
+      </select>
+    </div>
+
+    <button class="botao-reservar">
+      Reservar
+    </button>
+
+    <p class="texto-pequeno texto-secundario texto-centro">
+      Você ainda não será cobrado
+    </p>
+
+    <p class="texto-pequeno texto-secundario texto-centro">
+      <span style="margin-right: 5px;">🚩</span> <a href="#" class="link-secundario">Denunciar este anúncio</a>
+    </p>
+
+  </div>
+
+</div>
+<!-- === FIM DO BLOCO === -->
+  </section>
+</body>
+</html>
