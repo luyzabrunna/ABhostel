@@ -1,181 +1,155 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #e1d4c2;
-    width: 100%;
-    height: 100%;
+  font-family: "Nunito", sans-serif;
+  background-color: #e1d4c2;
+  width: 100%;
+  height: 100%;
+  border-radius: 120%;
+  overflow-x: hidden;
 }
 
-/* --- MENU PRINCIPAL --- */
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==========================
+   HEADER FIXO
+========================== */
 header {
   position: fixed;
-  background-color: #A78D78;
+  top: 0;
+  background-color: #e1d4c2;
   height: 60px;
-  width: 80%;
-  max-width: 1100px;
-  margin: 0 auto;
-  border-radius: 100px;
+  width: 100%;
+  border-radius: 2px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  z-index: 999;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 20px;
-  transition: background-color 0.3s ease;
-}
-
-header.scrolled {
-  background-color: #8c725e;
+  z-index: 1000;
 }
 
 .logo img {
-  height: 150px;
+  height: 140px;
   cursor: pointer;
+  margin-left: -11px;
 }
 
-nav {
+.menu-desktop {
   display: flex;
-  gap: 1.2rem;
+  align-items: center;
+  gap: 30px;
 }
 
-nav a {
+.menu-links {
+  display: flex;
+  gap: 20px;
+}
+
+.menu-links a {
+  font-size: 14px;
+  color: white;
+  transition: 0.3s;
   font-family: "Nunito", sans-serif;
   font-weight: 600;
+}
+
+.menu-links a:hover,
+.menu-links a.active {
   color: white;
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 13px;
-  transition: color 0.3s ease;
 }
 
-nav a:hover {
-  color: #ffefcf;
-}
-
-/* --- BOTÃO HAMBÚRGUER --- */
-.btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: white;
-  display: none;
-  font-size: 1.4rem;
-}
-
-/* --- BOTÃO ENTRAR / CADASTRE-SE (DESKTOP) --- */
 .btn-login {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: #ffefcf;
+  background-color: white;
+  color: #4a3c2f;
+  font-weight: 200;
   font-family: "Nunito", sans-serif;
-  font-weight: 700;
-  font-size: 13px;
-  transition: color 0.3s ease;
-}
-
-.btn-login i {
-  font-size: 18px;
-  margin-bottom: 4px;
-  color: #ffefcf;
-  transition: color 0.3s ease;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: 0.3s;
+  margin-right: 12px;
 }
 
 .btn-login:hover {
-  color: #fff6db;
+  background-color: #A78D78;
 }
 
-.btn-login:hover i {
-  color: #fff6db;
+/* ÍCONE MENU MOBILE */
+.btn.open {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  display: none;
 }
 
-/* --- MENU MOBILE --- */
+/* ==========================
+   MENU MOBILE
+========================== */
+.menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
+
 .mobile-menu {
   position: fixed;
-  top: 80px;
-  right: 10px;
+  top: 0;
+  right: -100%;
   width: 260px;
-  background-color: #A78D78;
-  border-radius: 15px;
-  transform: translateX(120%);
-  transition: transform 0.3s ease;
-  padding: 20px;
+  height: 100vh;
+  background-color: #a78d78;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
-  z-index: 1001;
+  justify-content: space-between;
+  padding: 20px;
+  z-index: 1000;
+  transition: right 0.4s ease;
 }
 
 .mobile-menu.open {
-  transform: translateX(0);
-}
-
-.mobile-links {
-  display: flex;
-  flex-direction: column;
+  right: 0;
 }
 
 .mobile-links a {
-  color: #fff;
-  text-decoration: none;
+  display: block;
+  color: white;
   font-size: 16px;
-  font-weight: 600;
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: color 0.3s ease;
-}
-
-.mobile-links a:hover {
-  color: #ffefcf;
+  margin: 10px 0;
 }
 
 .divider {
-  border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
-  margin: 8px 0;
-}
-
-.login-mobile {
-  color: #ffefcf;
+  border: 0;
+  height: 1px;
+  background-color: #fff;
+  margin: 10px 0;
 }
 
 .mobile-social {
   display: flex;
   justify-content: center;
   gap: 15px;
-  font-size: 1.5rem;
-  margin-top: 10px;
 }
 
 .mobile-social a {
-  color: #fff;
-}
-
-.menu-overlay {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease;
-  z-index: 1000;
-}
-
-.menu-overlay.active {
-  opacity: 1;
-  visibility: visible;
+  color: white;
+  font-size: 20px;
 }
 
 /* RESPONSIVIDADE */

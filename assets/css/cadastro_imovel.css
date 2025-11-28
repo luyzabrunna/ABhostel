@@ -8,14 +8,160 @@
     --radius: 14px;
     --max-width-card: 720px;
 }
-
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: #e1d4c2;
+  width: 100%;
+  height: 100%;
+  border-radius: 120%;
+  overflow-x: hidden;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==========================
+   HEADER FIXO
+========================== */
+header {
+  position: fixed;
+  top: 0;
+  background-color: #e1d4c2;
+  height: 60px;
+  width: 100%;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 140px;
+  cursor: pointer;
+  margin-left: -11px;
+}
+
+.menu-desktop {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.menu-links {
+  display: flex;
+  gap: 20px;
+}
+
+.menu-links a {
+  font-size: 14px;
+  color: white;
+  transition: 0.3s;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+}
+
+.menu-links a:hover,
+.menu-links a.active {
+  color: white;
+}
+
+.btn-login {
+  background-color: white;
+  color: #4a3c2f;
+  font-weight: 200;
+  font-family: "Nunito", sans-serif;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: 0.3s;
+  margin-right: 12px;
+}
+
+.btn-login:hover {
+  background-color: #A78D78;
+}
+
+/* ÍCONE MENU MOBILE */
+.btn.open {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+
+/* ==========================
+   MENU MOBILE
+========================== */
+.menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 260px;
+  height: 100vh;
+  background-color: #a78d78;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  z-index: 1000;
+  transition: right 0.4s ease;
+}
+
+.mobile-menu.open {
+  right: 0;
+}
+
+.mobile-links a {
+  display: block;
+  color: white;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background-color: #fff;
+  margin: 10px 0;
+}
+
+.mobile-social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.mobile-social a {
+  color: white;
+  font-size: 20px;
+}
+
 
 html,body {
     font-size: 16px;
@@ -29,12 +175,6 @@ body {
     line-height: 1.5;
 }
 
-
-
-.logo img {
-  height: 250px;
-  cursor: pointer;
-}
 /* Centraliza o card */
 .page-wrapper{
     min-height: 100vh;
@@ -159,6 +299,35 @@ fieldset label {
     transform: scale(1.05);
 }
 
+/* ==========================
+   RESPONSIVIDADE
+========================== */
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .menu-desktop {
+    display: none;
+  }
+
+  .logo img {
+    margin-left: -35px;
+  }
+
+  .btn.open {
+    display: block;
+  }
+
+  .busca {
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 20px;
+  }
+
+  .busca button {
+    width: 100%;
+    border-radius: 20px;
+  }
+}
 /*responsividade*/
 @media (max-width: 375px) {
   .page-wrapper {

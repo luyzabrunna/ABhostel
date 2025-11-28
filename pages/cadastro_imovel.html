@@ -10,20 +10,56 @@
 
 </head>
 <body>
+   <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <a href="/ABhostel/index.html"><img src="/ABhostel/Imagens/logo.png" alt="Logo ABhostel"></a>
+    </div>
+
+    <!-- MENU DESKTOP -->
+    <nav class="menu-desktop">
+      <ul class="menu-links">
+        <li><a href="/ABhostel/index.html" class="active">Início</a></li>
+        <li><a href="/ABhostel/paginas/imoveis.html">Imóveis</a></li>
+        <li><a href="/ABhostel/pages/cadastro_imovel.html">Anuncie seu imóvel</a></li>
+      </ul>
+      <a href="/ABhostel/pages/login.html" class="btn-login">Entrar / Cadastre-se</a> 
+    </nav>
+
+    <!-- ÍCONE MENU MOBILE -->
+    <button class="btn open" aria-label="Abrir menu"><i class="fas fa-bars"></i></button>
+  </header>
+
+  <!-- OVERLAY E MENU MOBILE -->
+  <div class="menu-overlay" aria-hidden="true"></div>
+  <div class="mobile-menu" aria-hidden="true">
+    <div class="mobile-links">
+      <a href="/ABhostel/index.html"><i class="fas fa-home"></i> Início</a>
+      <hr class="divider">
+      <a href="/ABhostel/paginas/imoveis.html">Imóveis</a>
+      <a href="/ABhostel/pages/cadastro_imovel.html">Anuncie seu imóvel</a>
+      <hr class="divider">
+      <a href="/ABhostel/paginas/sobre.html">Sobre</a>
+      <a href="/ABhostel/paginas/contato.html">Contato</a>
+      <hr class="divider">
+      <a href="/ABhostel/pages/login.html" class="login-mobile">Entrar / Cadastre-se</a>
+    </div>
+
+    <div class="mobile-social">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+  </div>
+
+<br>
+<br>
+
     <!-- vai centralizar todo o conteudo da página na tela. -->
     <div class="page-wrapper">
 
     <!-- conteudo principal da página. a classe card será u bloco elevado na sombra.-->    
     <main class="card">
-
-      <!-- Cabeçalho -->
-  <header class="header">
-    <div class="logo">
-      <a href="/ABhostel/index.html">
-        <img src="../Imagens/logo.png" alt="Logo ABhostel" />
-      </a>
-    </div>
-  </header>
 
         <!-- Título principal-->
          <h1>Anuncie seu Imóvel</h1>
@@ -227,7 +263,9 @@
                   <button type="submit" class="btn btn-submit">Publicar anúncio</button>
                </div>
           </form> 
-     </main>     
+     </main>
+     
+     <script src="/ABhostel/assets/js/menu.js"></script>
  </div>
 </body>
 </html>

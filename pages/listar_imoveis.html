@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Nunito&display=swap" rel="stylesheet" />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/ABhostel\assets\css\listar_imoveis.css">
+    <link rel="stylesheet" href="/ABhostel/assets/css/listar_imoveis.css">
 
     <!-- Ícones -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -25,22 +25,27 @@
     <nav class="menu-desktop">
       <ul class="menu-links">
         <li><a href="/ABhostel/index.html" class="active">Início</a></li>
-        <li><a href="/ABhostel/paginas/imoveis.html">Imóveis</a></li>
+        <li><a href="/ABhostel/pages/listar_imoveis.html">Imóveis</a></li>
         <li><a href="/ABhostel/pages/cadastro_imovel.html">Anuncie seu imóvel</a></li>
       </ul>
       <a href="/ABhostel/pages/login.html" class="btn-login">Entrar / Cadastre-se</a> 
     </nav>
+
+     <!-- ÍCONE MENU MOBILE -->
+    <button class="btn open" aria-label="Abrir menu"><i class="fas fa-bars"></i></button>
+  </header>
+
     <!-- OVERLAY E MENU MOBILE -->
   <div class="menu-overlay" aria-hidden="true"></div>
   <div class="mobile-menu" aria-hidden="true">
     <div class="mobile-links">
       <a href="/ABhostel/index.html">Início</a>
       <hr class="divider">
-      <a href="/ABhostel/paginas/imoveis.html">Imóveis</a>
+      <a href="/ABhostel/pages/listar_imoveis.html">Imóveis</a>
       <a href="/ABhostel/pages/cadastro_imovel.html">Anuncie seu imóvel</a>
       <hr class="divider">
-      <a href="/ABhostel/paginas/sobre.html">Sobre</a>
-      <a href="/ABhostel/paginas/contato.html">Contato</a>
+      <a href="/ABhostel/pages/sobre.html">Sobre</a>
+      <a href="/ABhostel/pages/contato.html">Contato</a>
       <hr class="divider">
       <a href="/ABhostel/pages/login.html" class="login-mobile">Entrar / Cadastre-se</a>
     </div>
@@ -51,7 +56,345 @@
       <a href="#"><i class="fab fa-twitter"></i></a>
     </div>
   </div>
+  <!-- Conteúdo da página -->
+  <div class="container">
+      
+      <!--Inicio Lista de imóveis-->
+      <div class="lista-imoveis">
 
+          <!--Inicio coluna esquerda-->
+          <div class="coluna-esquerda">
+              <p>200+ Opções</p>
+              <h1>Lista de Imóveis</h1>
+
+              <!--Inicio item imóveis-->
+              <div class="imovel">
+                  <div class="imovel-img">
+                      <img src="/ABhostel/Imagens/casa1.jpeg" alt="">
+                  </div>
+
+                  <div class="imovel-info">
+                      <p>Casa na cidade no estado do Tocantins</p>
+                      <h3>Casa na Cidade</h3>
+                      <p>3 quartos / 2 banheiros / wifi</p>
+
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star-half-stroke"></i>
+                      <i class="fa-regular fa-star"></i>
+
+                      <div class="imovel-valor">
+                          <p>4 Hóspedes</p>
+                          <h4>R$ 1.500,00 <span>/ mês</span></h4>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="imovel">
+                  <div class="imovel-img">
+                      <img src="/ABhostel/Imagens/ap1.jpeg" alt="">
+                  </div>
+
+                  <div class="imovel-info">
+                      <p>Apartamento no centro no estado do Tocantins</p>
+                      <h3>Apartamento no Centro</h3>
+                      <p>2 quartos / 1,5 banheiros / wifi</p>
+
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star-half-stroke"></i>
+                      <i class="fa-regular fa-star"></i>
+
+                      <div class="imovel-valor">
+                          <p>Até 3 Hóspedes</p>
+                          <h4>R$ 2.000,00 <span>/ mês</span></h4>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="imovel">
+                  <div class="imovel-img">
+                      <img src="/ABhostel/Imagens/kitnet1.jpeg" alt="">
+                  </div>
+
+                  <div class="imovel-info">
+                      <p>Kitnet no estado do Tocantins</p>
+                      <h3>Kitnet</h3>
+                      <p>0 quartos / 1 banheiro / wifi</p>
+
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star-half-stroke"></i>
+                      <i class="fa-regular fa-star"></i>
+
+                      <div class="imovel-valor">
+                          <p>Até 2 Hóspedes</p>
+                          <h4>R$ 700,00 <span>/ mês</span></h4>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="imovel">
+                  <div class="imovel-img">
+                      <img src="/ABhostel/Imagens/suíte1.jpeg" alt="">
+                  </div>
+
+                  <div class="imovel-info">
+                      <p>Suíte no estado do Mato Grosso</p>
+                      <h3>Suíte Clean</h3>
+                      <p>1 quarto / 1 banheiro / wifi</p>
+
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star-half-stroke"></i>
+                      <i class="fa-regular fa-star"></i>
+
+                      <div class="imovel-valor">
+                          <p>Até 2 Hóspedes</p>
+                          <h4>R$ 150,00 <span>/ noite</span></h4>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="imovel">
+                  <div class="imovel-img">
+                      <img src="/ABhostel/Imagens/hotel1.jpeg" alt="">
+                  </div>
+
+                  <div class="imovel-info">
+                      <p>Hotel Go no estado de Goiás</p>
+                      <h3>Hotel Go</h3>
+                      <p>1 quarto / 1 banheiro / wifi</p>
+
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star-half-stroke"></i>
+                      <i class="fa-regular fa-star"></i>
+
+                      <div class="imovel-valor">
+                          <p>Até 2 Hóspedes</p>
+                          <h4>R$ 150,00 <span>/ noite</span></h4>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="imovel">
+                  <div class="imovel-img">
+                      <img src="/ABhostel/Imagens/pousada1.jpeg" alt="">
+                  </div>
+
+                  <div class="imovel-info">
+                      <p>Pousada dos Monte no estado de Minas Gerais</p>
+                      <h3>Pousada dos Monte</h3>
+                      <p>1 quarto / 1 banheiro / wifi</p>
+
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star-half-stroke"></i>
+                      <i class="fa-regular fa-star"></i>
+
+                      <div class="imovel-valor">
+                          <p>Até 2 Hóspedes</p>
+                          <h4>R$ 250,00 <span>/ noite</span></h4>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="imovel">
+                  <div class="imovel-img">
+                      <img src="/ABhostel/Imagens/Chalé1.jpeg" alt="">
+                  </div>
+
+                  <div class="imovel-info">
+                      <p>Chalé de Madeira no estado do Tocantins</p>
+                      <h3>Chalé de Madeira</h3>
+                      <p>1 quarto / 1 banheiro / wifi</p>
+
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star-half-stroke"></i>
+                      <i class="fa-regular fa-star"></i>
+
+                      <div class="imovel-valor">
+                          <p>2 Hóspedes</p>
+                          <h4>R$ 190,00 <span>/ noite</span></h4>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="imovel">
+                  <div class="imovel-img">
+                      <img src="/ABhostel/Imagens/casa2.jpeg" alt="">
+                  </div>
+
+                  <div class="imovel-info">
+                      <p>Casa na cidade no estado do Tocantins</p>
+                      <h3>Casa Colinas</h3>
+                      <p>4 quartos / 3,5 banheiros / wifi / piscina</p>
+
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star-half-stroke"></i>
+                      <i class="fa-regular fa-star"></i>
+
+                      <div class="imovel-valor">
+                          <p>6 Hóspedes</p>
+                          <h4>R$ 1.000,00 <span>/ mês</span></h4>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="coluna-direita">
+
+              <div class="barra-lateral">
+                  <h2>Filtro de Busca</h2>
+                  <h3>Tipo de Imóvel</h3>
+                  <form action="" method="post">
+
+                    <div class="filtro">
+                      <input type="checkbox" name="" id=""> 
+                      <p>Casa</p> <span>(0)</span>
+                    </div>
+
+                    <div class="filtro">
+                      <input type="checkbox" name="" id=""> 
+                      <p>Apartamento</p> <span>(0)</span>
+                    </div>
+
+                    <div class="filtro">
+                      <input type="checkbox" name="" id=""> 
+                      <p>Kitnet</p> <span>(0)</span>
+                    </div>
+
+                    <div class="filtro">
+                      <input type="checkbox" name="" id=""> 
+                      <p>Suíte</p> <span>(0)</span>
+                    </div>
+
+                    <div class="filtro">
+                      <input type="checkbox" name="" id=""> 
+                      <p>Hotel</p> <span>(0)</span>
+                    </div>
+
+                    <div class="filtro">
+                      <input type="checkbox" name="" id=""> 
+                      <p>Pousada</p> <span>(0)</span>
+                    </div>
+
+                    <div class="filtro">
+                      <input type="checkbox" name="" id=""> 
+                      <p>Chalé</p> <span>(0)</span>
+                    </div>
+
+                    <h3>Facilidades</h3>
+
+                    <div class="filtro">
+                      <input type="checkbox" name="" id=""> 
+                      <p>Wi-fi</p> <span>(0)</span>
+                    </div>
+
+                    <div class="filtro">
+                      <input type="checkbox" name="" id=""> 
+                      <p>Ar-condicionado</p> <span>(0)</span>
+                    </div>
+
+                    <div class="filtro">
+                      <input type="checkbox" name="" id=""> 
+                      <p>Estacionamento</p> <span>(0)</span>
+                    </div>
+
+                    <div class="filtro">
+                      <input type="checkbox" name="" id=""> 
+                      <p>Pet-friendly</p> <span>(0)</span>
+                    </div>
+
+                    <div class="filtro">
+                      <input type="checkbox" name="" id=""> 
+                      <p>Piscina</p> <span>(0)</span>
+                    </div>
+
+                    <div class="filtro">
+                      <input type="checkbox" name="" id=""> 
+                      <p>Cozinha</p> <span>(0)</span>
+                    </div>
+
+                    <div class="filtro">
+                      <input type="checkbox" name="" id=""> 
+                      <p>TV</p> <span>(0)</span>
+                    </div>
+
+                    <div class="filtro">
+                      <input type="checkbox" name="" id=""> 
+                      <p>Área de trabalho</p> <span>(0)</span>
+                    </div> 
+
+                    <div class="filtro">
+                      <input type="checkbox" name="" id=""> 
+                      <p>Acessível</p> <span>(0)</span>
+                    </div>
+
+                    <div class="filtro">
+                      <input type="checkbox" name="" id=""> 
+                      <p>Café da manhã</p> <span>(0)</span>
+                    </div>
+
+                    <div class="filtro">
+                      <input type="checkbox" name="" id=""> 
+                      <p>Máquina de lavar</p> <span>(0)</span>
+                    </div>
+
+                    <div class="barra-lateral-link">
+                        <a href="">Veja Mais</a>
+                    </div>
+
+                    <h3>Estado / Cidade</h3>
+                    <div class="filtro">
+                        <select name="" id="">
+                            <option value="">Selecione o Estado</option>
+                            <option value="">Tocantins</option>
+                            <option value="">São Paulo</option>
+                            <option value="">Rio de Janeiro</option>
+                            <option value="">Minas Gerais</option>
+                            <option value="">Bahia</option>
+                            <option value="">Ceará</option>
+                            <option value="">Paraná</option>
+                            <option value="">Santa Catarina</option>
+                            <option value="">Rio Grande do Sul</option>
+                            <option value="">Distrito Federal</option>
+                        </select>
+                    </div>
+
+                    <div class="filtro">
+                        <select name="" id="">
+                            <option value="">Selecione a Cidade</option>
+                            <option value="">Palmas</option>
+                            <option value="">São Paulo</option>
+                            <option value="">Rio de Janeiro</option>
+                            <option value="">Belo Horizonte</option>
+                            <option value="">Salvador</option>
+                            <option value="">Fortaleza</option>
+                            <option value="">Curitiba</option>
+                            <option value="">Florianópolis</option>
+                            <option value="">Porto Alegre</option>
+                            <option value="">Brasília</option>
+                        </select>
+                    </div>
+
+                    <button class="cadastro-btn">Buscar</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
    <script src="/ABhostel/assets/js/menu.js"></script>
 </body>
 </html>
