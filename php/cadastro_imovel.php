@@ -123,7 +123,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABhostel - Cadastrar Imóvel</title>
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Nunito&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/cadastro_imovel.css">
+
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <body>
 
@@ -140,7 +148,33 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </ul>
         <a href="painel.php" class="btn-login">Voltar ao painel</a>
     </nav>
+
+     <!-- ÍCONE MENU MOBILE -->
+    <button class="btn open" aria-label="Abrir menu"><i class="fas fa-bars"></i></button>
+
 </header>
+
+ <!-- OVERLAY E MENU MOBILE -->
+  <div class="menu-overlay" aria-hidden="true"></div>
+  <div class="mobile-menu" aria-hidden="true">
+    <div class="mobile-links">
+      <a href="index.php"> Início</a>
+      <hr class="divider">
+      <a href="/php/listar_imoveis.php">Imóveis</a>
+      <a href="/php/anunciar.php">Anuncie seu imóvel</a>
+      <hr class="divider">
+      <a href="/php/sobre.php">Sobre</a>
+      <a href="/php/contato.php">Contato</a>
+      <hr class="divider">
+      <a href="painel.php" class="login-mobile">Voltar ao painel</a>
+    </div>
+
+    <div class="mobile-social">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+  </div>
 
 <br><br>
 
@@ -150,7 +184,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <h1>Anuncie seu Imóvel</h1>
 
     <?php if ($mensagem): ?>
-        <p class="msg-sucesso" style="color: green; font-weight:bold;">
+        <p class="msg-sucesso">
             <?= $mensagem ?>
         </p>
     <?php endif; ?>
@@ -187,8 +221,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <h2 class="section-title">Localização do imóvel</h2>
 
         <div class="form-group">
-            <label>CEP</label>
-            <input type="text" name="cep">
+            <label>Cidade</label>
+            <input type="text" name="cidade" required>
         </div>
 
         <div class="form-group">
@@ -270,10 +304,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <h2 class="section-title">O que o imóvel oferece</h2>
 
         <label><input type="checkbox" name="wi-fi"> Wi-fi</label>
-        <label><input type="checkbox" name="piscina"> Piscina</label>
-        <label><input type="checkbox" name="estacionamento"> Estacionamento</label>
         <label><input type="checkbox" name="ar-condicionado"> Ar-condicionado</label>
-        <label><input type="checkbox" name="tv_a_cabo"> TV a cabo</label>
+        <label><input type="checkbox" name="estacionamento"> Estacionamento</label>
+        <label><input type="checkbox" name="pet-friendly"> Pet-friendly</label>
+        <label><input type="checkbox" name="piscina"> Piscina</label>
+        <label><input type="checkbox" name="cozinha"> Cozinha</label>
+        <label><input type="checkbox" name="tv"> TV</label>
+        <label><input type="checkbox" name="area de trabalho"> Área de trabalho</label>
+        <label><input type="checkbox" name="acessivel"> Acessível</label>
+        <label><input type="checkbox" name="cafe"> Café da manhã</label>
+        <label><input type="checkbox" name="maquina"> Máquina de lavar</label>
 
         <h2 class="section-title">Preço e período</h2>
 
@@ -327,7 +367,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </form>
 
 </main>
+<script src="../assets/js/menu.js"></script>
 </div>
-
 </body>
 </html>

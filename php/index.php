@@ -68,7 +68,7 @@
       <h1>Encontre o lugar perfeito</h1>
       <p>Viaje do seu jeito: curto, médio ou longo prazo</p>
 
-      <form class="busca" action="" method="post">
+      <form class="busca" action="/php/listar_imoveis.php" method="post">
         <div>
           <label>Localização</label>
           <input type="text" placeholder="Onde você está indo?">
@@ -76,7 +76,7 @@
 
         <div>
           <label>Data Inicial</label>
-          <input type="date" placeholder="Adicione a data">
+          <input type="date"  placeholder="Adicione a data">
         </div>
 
         <div>

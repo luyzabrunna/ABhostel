@@ -1,18 +1,23 @@
 <?php
 session_start();
 
-// Só acessa logado
+// Impede acesso sem login
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: login.php");
     exit;
 }
 
-require "../php/bd.php";
+require "../php/bd.php"; // nossa classe PDO
 
-// Buscar imóveis no banco
+// Conexão PDO
 $conn = bd::getConexao();
-$sql = "SELECT * FROM imoveis ORDER BY id DESC";
-$res = $conn->query($sql);
+
+// Buscar imóveis com PDO
+$sql = $conn->prepare("SELECT * FROM imoveis ORDER BY id DESC");
+$sql->execute();
+
+// Resultado em array associativo
+$imoveis = $sql->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -21,12 +26,10 @@ $res = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listagem de Imóveis (Admin) - ABhostel</title>
 
-    <!-- CSS PRINCIPAL -->
     <link rel="stylesheet" href="../assets/css/listar_imoveis.css">
-
-    <!-- Fonte e ícones -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Nunito&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <body>
 
@@ -37,12 +40,11 @@ $res = $conn->query($sql);
 
     <nav class="menu-desktop">
         <ul class="menu-links">
-            <li><a href="../index.php">Início</a></li>
+            <li><a href="painel.php">Painel</a></li>
             <li><a href="listar_imoveis_admin.php" class="active">Imóveis</a></li>
             <li><a href="cadastrar_imovel.php">Cadastrar Imóvel</a></li>
         </ul>
 
-        <!-- No admin aparece botão sair -->
         <a href="painel.php" class="btn-login">Voltar ao painel</a>
     </nav>
 
@@ -54,11 +56,11 @@ $res = $conn->query($sql);
 
         <div class="coluna-esquerda">
 
-            <p><?php echo $res->num_rows; ?> opções</p>
+            <p><?= count($imoveis); ?> opções</p>
             <h1>Lista de Imóveis (Admin)</h1>
 
-            <?php if ($res->num_rows > 0): ?>
-                <?php while ($imovel = $res->fetch_assoc()): ?>
+            <?php if (count($imoveis) > 0): ?>
+                <?php foreach ($imoveis as $imovel): ?>
 
                     <?php
                     // Foto principal
@@ -66,7 +68,7 @@ $res = $conn->query($sql);
 
                     if (!empty($imovel['fotos'])) {
                         $fotosArray = explode(",", $imovel['fotos']);
-                        if ($fotosArray[0] != "") {
+                        if (!empty(trim($fotosArray[0]))) {
                             $foto = "../uploads/" . trim($fotosArray[0]);
                         }
                     }
@@ -75,45 +77,40 @@ $res = $conn->query($sql);
                     <div class="imovel">
 
                         <div class="imovel-img">
-                            <img src="<?php echo $foto; ?>" alt="Foto do imóvel">
+                            <img src="<?= $foto ?>" alt="Foto do imóvel">
                         </div>
 
                         <div class="imovel-info">
 
-                            <p><?php echo $imovel['titulo']; ?></p>
-                            <h3><?php echo ucfirst($imovel['tipo']); ?></h3>
+                            <p><?= $imovel['titulo']; ?></p>
+                            <h3><?= ucfirst($imovel['tipo']); ?></h3>
 
                             <p>
-                                <?php echo $imovel['quartos']; ?> quartos /
-                                <?php echo $imovel['banheiros']; ?> banheiros /
-                                <?php echo $imovel['wifi'] ? 'wifi' : 'sem wifi'; ?>
+                                <?= $imovel['quartos']; ?> quartos /
+                                <?= $imovel['banheiros']; ?> banheiros /
+                                <?= $imovel['wifi'] ? 'wifi' : 'sem wifi'; ?>
                             </p>
 
                             <div class="imovel-valor">
-                                <p><?php echo $imovel['capacidade']; ?> hóspedes</p>
-
+                                <p><?= $imovel['capacidade']; ?> hóspedes</p>
                                 <h4>
-                                    R$ <?php echo number_format($imovel['valor'], 2, ',', '.'); ?>
-                                    <span>/ <?php echo $imovel['tipo_preco']; ?></span>
+                                    R$ <?= number_format($imovel['valor'], 2, ',', '.'); ?>
+                                    <span>/ <?= $imovel['tipo_preco']; ?></span>
                                 </h4>
                             </div>
 
-                            <!-- BOTÕES ADMIN -->
                             <div class="acoes-admin">
-                                <a href="editar_imovel.php?id=<?php echo $imovel['id']; ?>" class="btn-editar">
-                                    Editar
-                                </a>
+                                <a href="editar_imovel.php?id=<?= $imovel['id']; ?>" class="btn-editar">Editar</a>
 
-                                <a href="excluir_imovel.php?id=<?php echo $imovel['id']; ?>" class="btn-excluir"
-                                    onclick="return confirm('Tem certeza que deseja excluir este imóvel?');">
-                                    Excluir
-                                </a>
+                                <a href="excluir_imovel.php?id=<?= $imovel['id']; ?>"
+                                   class="btn-excluir"
+                                   onclick="return confirm('Tem certeza que deseja excluir este imóvel?');">Exclui</a>
                             </div>
 
                         </div>
                     </div>
 
-                <?php endwhile; ?>
+                <?php endforeach; ?>
 
             <?php else: ?>
                 <p>Nenhum imóvel cadastrado ainda.</p>
