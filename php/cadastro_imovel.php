@@ -138,7 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <li><a href="listar_imoveis.php">Imóveis</a></li>
             <li><a href="#" class="active">Anuncie seu imóvel</a></li>
         </ul>
-        <a href="logout.php" class="btn-login">Sair</a>
+        <a href="painel.php" class="btn-login">Voltar ao painel</a>
     </nav>
 </header>
 

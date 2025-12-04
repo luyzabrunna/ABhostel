@@ -1,0 +1,27 @@
+/* Botões do admin */
+.acoes-admin {
+    margin-top: 10px;
+}
+
+.btn-editar, .btn-excluir {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 8px;
+    display: inline-block;
+}
+
+.btn-editar {
+    background: #0077ff;
+    color: #fff;
+}
+
+.btn-excluir {
+    background: #d60000;
+    color: #fff;
+}
+
+.btn-excluir:hover {
+    background: #a30000;
+}
