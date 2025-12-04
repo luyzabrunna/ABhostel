@@ -27,7 +27,7 @@ if (!isset($_SESSION['usuario_id'])) {
 
         <a href="painel.php">Painel</a>
         <a href="listar_imoveis_admin.php">Imóveis</a>
-        <a href="cadastrar_imovel.php">Cadastrar Imóvel</a>
+        <a href="cadastro_imovel.php">Cadastrar Imóvel</a>
         <a href="logout.php">Sair</a>
     </div>
 
@@ -44,7 +44,7 @@ if (!isset($_SESSION['usuario_id'])) {
             <div class="card">
                 <h3>Cadastrar Imóvel</h3>
                 <p>Adicione novos imóveis ao catálogo.</p>
-                <a href="cadastrar_imovel.php" class="btn-marrom">Cadastrar</a>
+                <a href="cadastro_imovel.php" class="btn-marrom">Cadastrar</a>
             </div>
 
             <div class="card">

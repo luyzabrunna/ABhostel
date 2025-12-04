@@ -78,7 +78,7 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
              </form>
 
              <div class="card-footer">
-                <p class="have-account">Não tem conta? 
+                <p class="have-account">Não tem conta? >
                     <a href="cadastro.php" class="link-entrar">Crie sua conta</a>
                 </p>
              </div>
