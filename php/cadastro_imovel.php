@@ -14,66 +14,90 @@ $mensagem = "";
 // QUANDO O FORM É ENVIADO
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+    // Dados básicos
     $tipo = $_POST['propertyType'];
     $titulo = $_POST['title'];
     $descricao = $_POST['description'];
 
-    $cep = $_POST['cep'];
+    // Localização
+    $cidade = $_POST['cidade'];
     $logradouro = $_POST['logradouro'];
     $numero = $_POST['numero'];
     $complemento = $_POST['complemento'];
     $bairro = $_POST['bairro'];
     $estado = $_POST['estado'];
 
+    // Estrutura
     $quartos = $_POST['quartos'];
     $suites = $_POST['suites'];
     $banheiros = $_POST['banheiro'];
     $capacidade = $_POST['capacidade'];
 
-    // Checkboxes
+    // Facilidades (checkboxes)
     $wifi = isset($_POST['wi-fi']) ? 1 : 0;
-    $piscina = isset($_POST['piscina']) ? 1 : 0;
+    $ar_condicionado = isset($_POST['ar-condicionado']) ? 1 : 0;
     $estacionamento = isset($_POST['estacionamento']) ? 1 : 0;
-    $ar = isset($_POST['ar-condicionado']) ? 1 : 0;
-    $tv = isset($_POST['tv_a_cabo']) ? 1 : 0;
+    $pet_friendly = isset($_POST['pet-friendly']) ? 1 : 0;
+    $piscina = isset($_POST['piscina']) ? 1 : 0;
+    $cozinha = isset($_POST['cozinha']) ? 1 : 0;
+    $tv = isset($_POST['tv']) ? 1 : 0;
+    $area_trabalho = isset($_POST['area de trabalho']) ? 1 : 0;
+    $cafe_manha = isset($_POST['cafe']) ? 1 : 0;
+    $maquina_lavar = isset($_POST['maquina']) ? 1 : 0;
 
+    // Preço e período
     $valor = $_POST['valor'];
-    $tipo_preco = $_POST['tipo-preço'];
-    $data_inicio = $_POST['data-inicio'];
-    $data_termino = $_POST['data-termino'];
+    $tipo_preco = $_POST['tipo_preço'];
+    $data_inicio = $_POST['data_inicio'];
+    $data_termino = $_POST['data_termino'];
 
+    // Contato
     $whatsapp = $_POST['whatsapp'];
-    $email_prop = $_POST['email-proprietario'];
+    $email_prop = $_POST['email_proprietario'];
 
     // UPLOAD DAS FOTOS
     $listaFotos = [];
 
     if (!empty($_FILES['fotos']['name'][0])) {
-        foreach ($_FILES['fotos']['name'] as $i => $nomeFoto) {
-            $tmp = $_FILES['fotos']['tmp_name'][$i];
+    $listaFotos = [];
 
-            $novoNome = uniqid() . "_" . $nomeFoto;
-            move_uploaded_file($tmp, "../uploads/" . $novoNome);
+    foreach ($_FILES['fotos']['name'] as $i => $nomeFoto) {
+        $tmp = $_FILES['fotos']['tmp_name'][$i];
 
+        // Gera um nome único para evitar sobrescrever arquivos
+        $novoNome = uniqid() . "_" . basename($nomeFoto);
+
+        // Move a foto para a pasta uploads
+        if (move_uploaded_file($tmp, "../uploads/" . $novoNome)) {
             $listaFotos[] = $novoNome;
+        } else {
+            echo "Erro ao enviar a foto: $nomeFoto<br>";
         }
     }
+
+    // Salva a lista de fotos como JSON para o banco
+    $fotosJSON = json_encode($listaFotos);
+} else {
+    $fotosJSON = null;
+}
 
     $fotosJSON = json_encode($listaFotos);
 
     // INSERE NO BANCO
     $sql = $conn->prepare("
         INSERT INTO imoveis (
-            tipo, titulo, descricao, cep, logradouro, numero, complemento, bairro, estado,
+            tipo, titulo, descricao, cidade, logradouro, numero, complemento, bairro, estado,
             quartos, suites, banheiros, capacidade,
-            wifi, piscina, estacionamento, ar_condicionado, tv_cabo,
+            wifi, piscina, estacionamento, ar_condicionado, tv, pet_friendly, cozinha, area_trabalho,
+            cafe_manha, maquina_lavar,
             valor, tipo_preco, data_inicio, data_termino,
             whatsapp, email_proprietario, fotos
         )
         VALUES (
-            :tipo, :titulo, :descricao, :cep, :logradouro, :numero, :complemento, :bairro, :estado,
+            :tipo, :titulo, :descricao, :cidade, :logradouro, :numero, :complemento, :bairro, :estado,
             :quartos, :suites, :banheiros, :capacidade,
-            :wifi, :piscina, :estacionamento, :ar, :tv,
+            :wifi, :piscina, :estacionamento, :ar_condicionado, :tv, :pet_friendly, :cozinha, :area_trabalho,
+            :cafe_manha, :maquina_lavar,
             :valor, :tipo_preco, :data_inicio, :data_termino,
             :whatsapp, :email_prop, :fotos
         )
@@ -83,33 +107,32 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         ':tipo' => $tipo,
         ':titulo' => $titulo,
         ':descricao' => $descricao,
-
-        ':cep' => $cep,
+        ':cidade' => $cidade,
         ':logradouro' => $logradouro,
         ':numero' => $numero,
         ':complemento' => $complemento,
         ':bairro' => $bairro,
         ':estado' => $estado,
-
         ':quartos' => $quartos,
         ':suites' => $suites,
         ':banheiros' => $banheiros,
         ':capacidade' => $capacidade,
-
         ':wifi' => $wifi,
         ':piscina' => $piscina,
         ':estacionamento' => $estacionamento,
-        ':ar' => $ar,
+        ':ar_condicionado' => $ar_condicionado,
         ':tv' => $tv,
-
+        ':pet_friendly' => $pet_friendly,
+        ':cozinha' => $cozinha,
+        ':area_trabalho' => $area_trabalho,
+        ':cafe_manha' => $cafe_manha,
+        ':maquina_lavar' => $maquina_lavar,
         ':valor' => $valor,
         ':tipo_preco' => $tipo_preco,
         ':data_inicio' => $data_inicio,
         ':data_termino' => $data_termino,
-
         ':whatsapp' => $whatsapp,
         ':email_prop' => $email_prop,
-
         ':fotos' => $fotosJSON
     ]);
 
@@ -210,7 +233,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <div class="form-group">
             <label for="title">Título do anúncio</label>
-            <input type="text" id="title" name="title" maxlength="100" required>
+            <input type="text" id="title" name="title" maxlength="150" required>
         </div>
 
         <div class="form-group">
@@ -293,7 +316,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <div class="form-group">
             <label>Banheiros</label>
-            <input type="number" name="banheiro" min="1" required>
+            <input type="number" name="banheiros" min="1" required>
         </div>
 
         <div class="form-group">
@@ -303,17 +326,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <h2 class="section-title">O que o imóvel oferece</h2>
 
-        <label><input type="checkbox" name="wi-fi"> Wi-fi</label>
+        <label><input type="checkbox" name="wifi"> Wi-fi</label>
         <label><input type="checkbox" name="ar-condicionado"> Ar-condicionado</label>
         <label><input type="checkbox" name="estacionamento"> Estacionamento</label>
-        <label><input type="checkbox" name="pet-friendly"> Pet-friendly</label>
+        <label><input type="checkbox" name="pet_friendly"> Pet-friendly</label>
         <label><input type="checkbox" name="piscina"> Piscina</label>
         <label><input type="checkbox" name="cozinha"> Cozinha</label>
         <label><input type="checkbox" name="tv"> TV</label>
         <label><input type="checkbox" name="area de trabalho"> Área de trabalho</label>
-        <label><input type="checkbox" name="acessivel"> Acessível</label>
-        <label><input type="checkbox" name="cafe"> Café da manhã</label>
-        <label><input type="checkbox" name="maquina"> Máquina de lavar</label>
+        <label><input type="checkbox" name="cafe_manha"> Café da manhã</label>
+        <label><input type="checkbox" name="maquina_lavar"> Máquina de lavar</label>
 
         <h2 class="section-title">Preço e período</h2>
 
@@ -324,7 +346,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <div class="form-group">
             <label>Tipo de preço</label>
-            <select name="tipo-preço" required>
+            <select name="tipo_preço" required>
                 <option value="noite">Por noite</option>
                 <option value="semana">Por semana</option>
                 <option value="mes">Por mês</option>
@@ -333,12 +355,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <div class="form-group">
             <label>Data de início</label>
-            <input type="date" name="data-inicio" required>
+            <input type="date" name="data_inicio" required>
         </div>
 
         <div class="form-group">
             <label>Data de término</label>
-            <input type="date" name="data-termino" required>
+            <input type="date" name="data_termino" required>
         </div>
 
         <h2 class="section-title">Contato do proprietário</h2>
@@ -350,7 +372,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <div class="form-group">
             <label>Email (opcional)</label>
-            <input type="email" name="email-proprietario">
+            <input type="email" name="email_proprietario">
         </div>
 
         <h2 class="section-title">Fotos do imóvel</h2>

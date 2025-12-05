@@ -100,9 +100,9 @@ $imoveis = $sql->fetchAll(PDO::FETCH_ASSOC);
                             </div>
 
                             <div class="acoes-admin">
-                                <a href="editar_imovel.php?id=<?= $imovel['id']; ?>" class="btn-editar">Editar</a>
+                                <a href="editar.php?id=<?= $imovel['id']; ?>" class="btn-editar">Editar</a>
 
-                                <a href="excluir_imovel.php?id=<?= $imovel['id']; ?>"
+                                <a href="excluir.php?id=<?= $imovel['id']; ?>"
                                    class="btn-excluir"
                                    onclick="return confirm('Tem certeza que deseja excluir este imóvel?');">Exclui</a>
                             </div>
