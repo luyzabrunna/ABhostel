@@ -11,8 +11,10 @@ if (!isset($_SESSION['usuario_id'])) {
 $conn = bd::getConexao();
 $mensagem = "";
 
+// Pega o ID do imóvel via GET
 $id = $_GET['id'];
 
+// Busca o ímovel para preencher o formulario
 $sql_select = $conn->prepare("SELECT * FROM imoveis WHERE id = :id");
 $sql_select->bindValue(":id", $id);
 $sql_select->execute();
@@ -38,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Estrutura
     $quartos = $_POST['quartos'];
     $suites = $_POST['suites'];
-    $banheiros = $_POST['banheiro'];
+    $banheiros = $_POST['banheiros'];
     $capacidade = $_POST['capacidade'];
 
     // Facilidades (checkboxes)
@@ -91,25 +93,41 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $fotosJSON = json_encode($listaFotos);
 
-    // INSERE NO BANCO
+    // UPDATE do imóvel
     // UPDATE imoveis SET tipo = :tipo, titulo = :ti WHERE id = :id
     $sql = $conn->prepare("
-        INSERT INTO imoveis (
-            tipo, titulo, descricao, cidade, logradouro, numero, complemento, bairro, estado,
-            quartos, suites, banheiros, capacidade,
-            wifi, piscina, estacionamento, ar_condicionado, tv, pet_friendly, cozinha, area_trabalho,
-            cafe_manha, maquina_lavar,
-            valor, tipo_preco, data_inicio, data_termino,
-            whatsapp, email_proprietario, fotos
-        )
-        VALUES (
-            :tipo, :titulo, :descricao, :cidade, :logradouro, :numero, :complemento, :bairro, :estado,
-            :quartos, :suites, :banheiros, :capacidade,
-            :wifi, :piscina, :estacionamento, :ar_condicionado, :tv, :pet_friendly, :cozinha, :area_trabalho,
-            :cafe_manha, :maquina_lavar,
-            :valor, :tipo_preco, :data_inicio, :data_termino,
-            :whatsapp, :email_prop, :fotos
-        )
+       UPDATE imoveis SET
+            tipo = :tipo,
+            titulo = :titulo,
+            descricao = :descricao,
+            cidade = :cidade,
+            logradouro = :logradouro,
+            numero = :numero,
+            complemento = :complemento,
+            bairro = :bairro,
+            estado = :estado,
+            quartos = :quartos,
+            suites = :suites,
+            banheiros = :banheiros,
+            capacidade = :capacidade,
+            wifi = :wifi,
+            piscina = :piscina,
+            estacionamento = :estacionamento,
+            ar_condicionado = :ar_condicionado,
+            tv = :tv,
+            pet_friendly = :pet_friendly,
+            cozinha = :cozinha,
+            area_trabalho = :area_trabalho,
+            cafe_manha = :cafe_manha,
+            maquina_lavar = :maquina_lavar,
+            valor = :valor,
+            tipo_preco = :tipo_preco,
+            data_inicio = :data_inicio,
+            data_termino = :data_termino,
+            whatsapp = :whatsapp,
+            email_proprietario = :email_prop,
+            fotos = :fotos
+        WHERE id = :id
     ");
 
     $sql->execute([
@@ -142,7 +160,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         ':data_termino' => $data_termino,
         ':whatsapp' => $whatsapp,
         ':email_prop' => $email_prop,
-        ':fotos' => $fotosJSON
+        ':fotos' => $fotosJSON,
+        ':id'=> $id
     ]);
 
     $mensagem = "Imóvel cadastrado com sucesso!";
@@ -247,39 +266,39 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <div class="form-group">
             <label for="description">Descrição</label>
-            <textarea id="description" name="description" maxlength="500" rows="4" required><?php echo $imovel->descricao;?></textarea>
+            <input id="description" name="description" maxlength="500" rows="4" required value="<?php echo $imovel->descricao;?>"</textarea>
         </div>
 
         <h2 class="section-title">Localização do imóvel</h2>
 
         <div class="form-group">
             <label>Cidade</label>
-            <input type="text" name="cidade" required>
+            <input type="text" name="cidade" value="<?php echo $imovel->cidade;?>">
         </div>
 
         <div class="form-group">
             <label>Logradouro (rua/avenida)</label>
-            <input type="text" name="logradouro" required>
+            <input type="text" name="logradouro" required value="<?php echo $imovel->logradouro;?>">
         </div>
 
         <div class="form-group">
             <label>Número</label>
-            <input type="text" name="numero" required>
+            <input type="text" name="numero" required  value="<?php echo $imovel->numero;?>">
         </div>
 
         <div class="form-group">
             <label>Complemento (opcional)</label>
-            <input type="text" name="complemento">
+            <input type="text" name="complemento"  value="<?php echo $imovel->complemento;?>">
         </div>
 
         <div class="form-group">
             <label>Bairro</label>
-            <input type="text" name="bairro" required>
+            <input type="text" name="bairro" required  value="<?php echo $imovel->bairro;?>">
         </div>
 
         <div class="form-group">
             <label>Estado</label>
-            <select name="estado" required>
+            <select name="estado" required  value="<?php echo $imovel->estado;?>">
                 <option value="">Selecione</option>
                 <option value="Acre (AC)">Acre (AC)</option>
                     <option value="Alagoas (AL)">Alagoas (AL)</option>
@@ -315,36 +334,36 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <div class="form-group">
             <label>Quartos</label>
-            <input type="number" name="quartos" min="1" required>
+            <input type="number" name="quartos" min="1" required  value="<?php echo $imovel->quartos;?>">
         </div>
 
         <div class="form-group">
             <label>Suítes</label>
-            <input type="number" name="suites" min="0">
+            <input type="number" name="suites" min="0"  value="<?php echo $imovel->suites;?>">
         </div>
 
         <div class="form-group">
             <label>Banheiros</label>
-            <input type="number" name="banheiros" min="1" required>
+            <input type="number" name="banheiros" min="1" required  value="<?php echo $imovel->banheiros;?>">
         </div>
 
         <div class="form-group">
             <label>Capacidade</label>
-            <input type="number" name="capacidade" min="1" required>
+            <input type="number" name="capacidade" min="1" required  value="<?php echo $imovel->capacidade;?>">
         </div>
 
         <h2 class="section-title">O que o imóvel oferece</h2>
 
         <label><input type="checkbox" name="wifi" <?php echo $imovel->wifi ? 'checked' : '';?>> Wi-fi</label>
         <label><input type="checkbox" name="ar-condicionado" <?php echo $imovel->ar_condicionado ? 'checked' : '';?>> Ar-condicionado</label>
-        <label><input type="checkbox" name="estacionamento"> Estacionamento</label>
-        <label><input type="checkbox" name="pet_friendly"> Pet-friendly</label>
-        <label><input type="checkbox" name="piscina"> Piscina</label>
-        <label><input type="checkbox" name="cozinha"> Cozinha</label>
-        <label><input type="checkbox" name="tv"> TV</label>
-        <label><input type="checkbox" name="area de trabalho"> Área de trabalho</label>
-        <label><input type="checkbox" name="cafe_manha"> Café da manhã</label>
-        <label><input type="checkbox" name="maquina_lavar"> Máquina de lavar</label>
+        <label><input type="checkbox" name="estacionamento" <?php echo $imovel->estacionamento ? 'checked' : '';?>> Estacionamento</label>
+        <label><input type="checkbox" name="pet_friendly"> Pet-friendly <?php echo $imovel->pet_friendly ? 'checked' : '';?>Pet-friendly</label>
+        <label><input type="checkbox" name="piscina" <?php echo $imovel->piscina ? 'checked' : '';?>> Piscina</label>
+        <label><input type="checkbox" name="cozinha" <?php echo $imovel->cozinha ? 'checked' : '';?>> Cozinha</label>
+        <label><input type="checkbox" name="tv" <?php echo $imovel->tv ? 'checked' : '';?>> TV</label>
+        <label><input type="checkbox" name="area_trabalho" <?php echo $imovel->area_trabalho ? 'checked' : '';?>> Área de trabalho</label>
+        <label><input type="checkbox" name="cafe_manha" <?php echo $imovel->cafe_manha ? 'checked' : '';?>> Café da manhã</label>
+        <label><input type="checkbox" name="maquina_lavar" <?php echo $imovel->maquina_lavar ? 'checked' : '';?>> Máquina de lavar</label>
 
         <h2 class="section-title">Preço e período</h2>
 
@@ -355,33 +374,33 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <div class="form-group">
             <label>Tipo de preço</label>
-            <select name="tipo_preço" required>
-                <option value="noite">Por noite</option>
-                <option value="semana">Por semana</option>
-                <option value="mes">Por mês</option>
+            <select name="tipo_preco" required>
+                <option value="noite" <?= $imovel->tipo_preco == 'noite' ? 'selected' : ''; ?>>Por noite</option>
+                <option value="semana" <?= $imovel->tipo_preco == 'semana' ? 'selected' : ''; ?>>Por semana</option>
+                <option value="mes" <?= $imovel->tipo_preco == 'mes' ? 'selected' : ''; ?>>Por mês</option>
             </select>
         </div>
 
         <div class="form-group">
             <label>Data de início</label>
-            <input type="date" name="data_inicio" required>
+            <input type="date" name="data_inicio" required value="<?php echo $imovel->data_inicio;?>">
         </div>
 
         <div class="form-group">
             <label>Data de término</label>
-            <input type="date" name="data_termino" required>
+            <input type="date" name="data_termino" required value="<?php echo $imovel->data_termino;?>">
         </div>
 
         <h2 class="section-title">Contato do proprietário</h2>
 
         <div class="form-group">
             <label>WhatsApp</label>
-            <input type="tel" name="whatsapp" required>
+            <input type="tel" name="whatsapp" required value="<?php echo $imovel->whatsapp;?>">
         </div>
 
         <div class="form-group">
             <label>Email (opcional)</label>
-            <input type="email" name="email_proprietario">
+            <input type="email" name="email_proprietario" value="<?php echo $imovel->email_proprietario;?>">
         </div>
 
         <h2 class="section-title">Fotos do imóvel</h2>
