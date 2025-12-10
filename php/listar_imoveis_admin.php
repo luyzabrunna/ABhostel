@@ -26,7 +26,7 @@ $imoveis = $sql->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listagem de Imóveis (Admin) - ABhostel</title>
 
-    <link rel="stylesheet" href="../assets/css/listar_imoveis.css">
+    <link rel="stylesheet" href="../assets/css/listar_imoveis_admin.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Nunito&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
