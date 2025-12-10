@@ -1,13 +1,13 @@
  <!-- HEADER -->
   <header>
     <div class="logo">
-      <a href="/index.php"><img src="/assets/Imagens/logo.png" alt="Logo ABhostel"></a>
+      <a href="/index.php"><img src="../assets/Imagens/logo.png" alt="Logo ABhostel"></a>
     </div>
 
     <!-- MENU DESKTOP -->
     <nav class="menu-desktop">
       <ul class="menu-links">
-        <li><a href="/index.php" class="active">Início</a></li>
+        <li><a href="../index.php" class="active">Início</a></li>
         <li><a href="/php/listar_imoveis.php">Imóveis</a></li>
         <li><a href="">Anuncie seu imóvel</a></li>
       </ul>
