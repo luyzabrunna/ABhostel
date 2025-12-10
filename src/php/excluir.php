@@ -1,5 +1,5 @@
 <?php
-require_once "../php/bd.php";
+require_once "/php/bd.php";
 session_start();
 
 // VERIFICA LOGIN
@@ -26,4 +26,4 @@ $sql = $conn->prepare("DELETE FROM imoveis WHERE id = :id");
 $sql->bindValue(":id", $id);
 $sql->execute();
 
-header("Location: ./painel.php");
+header("Location: /php/painel.php");

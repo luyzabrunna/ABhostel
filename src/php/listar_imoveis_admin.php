@@ -114,7 +114,7 @@ $imoveis = $sql->fetchAll(PDO::FETCH_ASSOC);
                                 <p><?= $imovel['capacidade']; ?> hóspedes</p>
                                 <h4>
                                     R$ <?= number_format($imovel['valor'], 2, ',', '.'); ?>
-                                    <span>/ <?= $imovel['tipo_preco']; ?></span>
+                                    <span>/ <?= $imovel['tipo_preco']; ?> mês</span>
                                 </h4>
                             </div>
 
@@ -123,7 +123,7 @@ $imoveis = $sql->fetchAll(PDO::FETCH_ASSOC);
 
                                 <a href="excluir.php?id=<?= $imovel['id']; ?>"
                                    class="btn-excluir"
-                                   onclick="return confirm('Tem certeza que deseja excluir este imóvel?');">Exclui</a>
+                                   onclick="return confirm('Tem certeza que deseja excluir este imóvel?');">Excluir</a>
                             </div>
 
                         </div>
@@ -147,6 +147,6 @@ $imoveis = $sql->fetchAll(PDO::FETCH_ASSOC);
     </div>
 </div>
 
-<script src="../assets/js/menu.js"></script>
+<script src="/assets/js/menu.js"></script>
 </body>
 </html>

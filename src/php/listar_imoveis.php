@@ -46,7 +46,7 @@ $imoveis = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Nunito&display=swap" rel="stylesheet" />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../assets/css/listar_imoveis.css">
+    <link rel="stylesheet" href="/assets/css/listar_imoveis.css">
 
     <!-- Ícones -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -103,7 +103,10 @@ $imoveis = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                       <div class="imovel-valor">
                           <p><?php echo $imovel['capacidade']; ?> Hóspedes</p>
-                          <h4>R$ <?php echo $imovel['valor']; ?> <span>/ mês</span></h4>
+                          <h4>
+                              R$ <?= number_format($imovel['valor'], 2, ',', '.'); ?>
+                              <span>/ <?= $imovel['tipo_preco']; ?> mês</span>
+                          </h4>
                       </div>
                   </div>
               </div>
@@ -247,6 +250,6 @@ $imoveis = $stmt->fetchAll(PDO::FETCH_ASSOC);
       </div>
   </div>
 
-  <script src="../assets/js/menu.js"></script>
+  <script src="/assets/js/menu.js"></script>
 </body>
 </html>
