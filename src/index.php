@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Nunito&display=swap" rel="stylesheet" />
 
   <!-- CSS -->
-  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 
   <!-- Ícones -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -27,13 +27,13 @@
 
   <!-- BANNER PRINCIPAL -->
   <div class="banner">
-    <img src="../Imagens/banner.jpeg" alt="Banner principal">
+    <img src="assets/Imagens/banner.jpeg" alt="Banner principal">
 
     <div class="banner-primario">
       <h1>Encontre o lugar perfeito</h1>
       <p>Viaje do seu jeito: curto, médio ou longo prazo</p>
 
-      <form class="busca" action="/php/listar_imoveis.php" method="post">
+      <form class="busca" action="php/listar_imoveis.php" method="post">
         <div>
           <label>Localização</label>
           <input type="text" placeholder="Onde você está indo?">
