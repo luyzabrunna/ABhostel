@@ -15,14 +15,14 @@ if (!isset($_SESSION['usuario_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel - ABhostel</title>
 
-    <link rel="stylesheet" href="../assets/css/painel.css">
+    <link rel="stylesheet" href="/assets/css/painel.css">
 </head>
 <body>
 
     <!-- MENU LATERAL -->
     <div class="sidebar">
         <div class="logo-area">
-            <img src="../Imagens/logo.png" alt="Logo ABhostel" class="logo-sidebar">
+            <img src="/assets/Imagens/logo.png" alt="Logo ABhostel" class="logo-sidebar">
         </div>
 
         <a href="painel.php">Painel</a>

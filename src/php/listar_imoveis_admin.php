@@ -35,14 +35,14 @@ $imoveis = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 <header>
     <div class="logo">
-        <a href="painel.php"><img src="../Imagens/logo.png" alt="Logo ABhostel"></a>
+        <a href="painel.php"><img src="/assets/Imagens/logo.png" alt="Logo ABhostel"></a>
     </div>
 
     <nav class="menu-desktop">
         <ul class="menu-links">
-            <li><a href="painel.php">Painel</a></li>
-            <li><a href="listar_imoveis_admin.php" class="active">Imóveis</a></li>
-            <li><a href="cadastrar_imovel.php">Cadastrar Imóvel</a></li>
+            <li><a href="/index.php">Início</a></li>
+            <li><a href="listar_imoveis.php" class="active">Imóveis</a></li>
+            <li><a href="cadastro_imovel.php">Cadastrar Imóvel</a></li>
         </ul>
         <a href="painel.php" class="btn-login">Voltar ao painel</a>
     </nav>

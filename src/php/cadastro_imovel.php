@@ -150,7 +150,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Nunito&display=swap" rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../assets/css/cadastro_imovel.css">
+    <link rel="stylesheet" href="/assets/css/cadastro_imovel.css">
 
     <!-- Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -160,13 +160,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <header>
     <div class="logo">
-        <a href="../index.php"><img src="../imagens/logo.png" alt="Logo ABhostel"></a>
+        <a href="/index.php"><img src="/assets/imagens/logo.png" alt="Logo ABhostel"></a>
     </div>
 
     <nav class="menu-desktop">
         <ul class="menu-links">
-            <li><a href="../index.php">Início</a></li>
-            <li><a href="listar_imoveis.php">Imóveis</a></li>
+            <li><a href="/index.php">Início</a></li>
+            <li><a href="listar_imoveis_admin.php">Imóveis</a></li>
             <li><a href="#" class="active">Anuncie seu imóvel</a></li>
         </ul>
         <a href="painel.php" class="btn-login">Voltar ao painel</a>

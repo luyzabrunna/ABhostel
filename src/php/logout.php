@@ -30,17 +30,17 @@ if (ini_get("session.use_cookies")) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logout - ABhostel</title>
-    <link rel="stylesheet" href="../assets/css/logout.css">
+    <link rel="stylesheet" href="/assets/css/logout.css">
 </head>
 <body>
 
 <div class="logout-container">
-    <img src="../Imagens/logo.png" alt="Logo ABhostel">
+    <img src="/assets/Imagens/logo.png" alt="Logo ABhostel">
 
     <h2>Logout efetuado com sucesso!</h2>
     <p>Você saiu da sua conta com segurança.</p>
 
-    <a href="../php/index.php" class="btn-voltar">Voltar ao início</a>
+    <a href="/index.php" class="btn-voltar">Voltar ao início</a>
 </div>
 
 </body>
