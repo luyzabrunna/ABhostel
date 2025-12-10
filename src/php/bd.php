@@ -1,10 +1,10 @@
 <?php
 
 class bd {
-    private static $host = "localhost";
+    private static $host = "db";
     private static $dbname = "abhostel"; 
     private static $usuario = "root";
-    private static $senha = "";
+    private static $senha = "root";
 
     private static $conexao = null;
 
