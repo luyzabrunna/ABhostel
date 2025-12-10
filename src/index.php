@@ -66,7 +66,7 @@
 
       <div class="imovel-card">
         <button class="favorito"><i class="fas fa-heart"></i></button>
-        <img src="../Imagens/casa1.jpeg" alt="Casa na cidade">
+        <img src="./assets/Imagens/casa1.jpeg" alt="Casa na cidade">
         <div class="info">
           <h3>Casa na Cidade</h3>
           <p>Palmas - TO</p>
@@ -76,7 +76,7 @@
 
       <div class="imovel-card">
          <button class="favorito"><i class="fas fa-heart"></i></button>
-        <img src="../Imagens/ap1.jpeg" alt="Apartamento no centro">
+        <img src="./assets/Imagens/ap1.jpeg" alt="Apartamento no centro">
         <div class="info">
           <h3>Apartamento no Centro</h3>
           <p>Palmas - TO</p>
@@ -86,7 +86,7 @@
 
       <div class="imovel-card">
          <button class="favorito"><i class="fas fa-heart"></i></button>
-        <img src="../Imagens/kitnet1.jpeg" alt="Kitnet">
+        <img src="./assets/Imagens/kitnet1.jpeg" alt="Kitnet">
         <div class="info">
           <h3>Kitnet</h3>
           <p>Araguaína - TO</p>
@@ -96,7 +96,7 @@
 
       <div class="imovel-card">
          <button class="favorito"><i class="fas fa-heart"></i></button>
-        <img src="../Imagens/suíte1.jpeg" alt="Suíte Clean">
+        <img src="./assets/Imagens/suíte1.jpeg" alt="Suíte Clean">
         <div class="info">
           <h3>Suíte Clean</h3>
           <p>Sorriso - MT</p>
@@ -106,7 +106,7 @@
 
       <div class="imovel-card">
          <button class="favorito"><i class="fas fa-heart"></i></button>
-        <img src="../Imagens/hotel1.jpeg" alt="Hotel Go">
+        <img src="./assets/Imagens/hotel1.jpeg" alt="Hotel Go">
         <div class="info">
           <h3>Hotel Go</h3>
           <p>Goiânia - GO</p>
@@ -116,7 +116,7 @@
 
       <div class="imovel-card">
         <button class="favorito"><i class="fas fa-heart"></i></button>
-        <img src="../Imagens/pousada1.jpeg" alt="Pousada dos Monte">
+        <img src="./assets/Imagens/pousada1.jpeg" alt="Pousada dos Monte">
         <div class="info">
           <h3>Pousada dos Monte</h3>
           <p>Juiz de Fora - MG</p>
@@ -126,7 +126,7 @@
 
       <div class="imovel-card">
         <button class="favorito"><i class="fas fa-heart"></i></button>
-        <img src="../Imagens/chalé1.jpeg" alt="Chalé de madeira">
+        <img src="./assets/Imagens/chalé1.jpeg" alt="Chalé de madeira">
         <div class="info">
           <h3>Chalé de Madeira</h3>
           <p>Miracema - TO</p>
@@ -136,7 +136,7 @@
 
       <div class="imovel-card">
         <button class="favorito"><i class="fas fa-heart"></i></button>
-        <img src="../Imagens/casa2.jpeg" alt="Casa colinas">
+        <img src="./assets/Imagens/casa2.jpeg" alt="Casa colinas">
         <div class="info">
           <h3>Casa Colinas</h3>
           <p>Colinas do Tocantins - TO</p>
@@ -149,7 +149,7 @@
 
   <!-- SEGUNDO BANNER -->
   <section class="banner-segundo">
-    <img src="../Imagens/banner2.jpeg" alt="Sala aconchegante" class="banner-img">
+    <img src="./assets/Imagens/banner2.jpeg" alt="Sala aconchegante" class="banner-img">
 
     <div class="banner-secundario">
       <div class="texto-esquerda">
@@ -167,7 +167,7 @@
   <footer>
     <div class="footer-footer">
       <div class="footer-logo">
-        <img src="../Imagens/logo.png" alt="Logo ABhostel" class="footer-logo-img">
+        <img src="./assets/Imagens/logo.png" alt="Logo ABhostel" class="footer-logo-img">
         <p>Hospedagem simples, acessível e acolhedora.</p>
       </div>
 
