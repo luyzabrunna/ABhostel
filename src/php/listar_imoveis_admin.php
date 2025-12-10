@@ -44,12 +44,31 @@ $imoveis = $sql->fetchAll(PDO::FETCH_ASSOC);
             <li><a href="listar_imoveis_admin.php" class="active">Imóveis</a></li>
             <li><a href="cadastrar_imovel.php">Cadastrar Imóvel</a></li>
         </ul>
-
         <a href="painel.php" class="btn-login">Voltar ao painel</a>
     </nav>
 
+    <!-- ÍCONE MENU MOBILE -->
     <button class="btn open" aria-label="Abrir menu"><i class="fas fa-bars"></i></button>
 </header>
+
+<!-- OVERLAY E MENU MOBILE -->
+<div class="menu-overlay" aria-hidden="true"></div>
+<div class="mobile-menu" aria-hidden="true">
+  <div class="mobile-links">
+    <a href="painel.php">Painel</a>
+    <hr class="divider">
+    <a href="listar_imoveis_admin.php">Imóveis</a>
+    <a href="cadastrar_imovel.php">Cadastrar Imóvel</a>
+    <hr class="divider">
+    <a href="painel.php" class="login-mobile">Voltar ao painel</a>
+  </div>
+
+  <div class="mobile-social">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+  </div>
+</div>
 
 <div class="container">
     <div class="lista-imoveis">
