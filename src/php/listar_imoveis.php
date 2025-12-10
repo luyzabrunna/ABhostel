@@ -247,6 +247,6 @@ $imoveis = $stmt->fetchAll(PDO::FETCH_ASSOC);
       </div>
   </div>
 
-  <script src="../assets/js/menu.js"></script>
+  <script src="/assets/js/menu.js"></script>
 </body>
 </html>
