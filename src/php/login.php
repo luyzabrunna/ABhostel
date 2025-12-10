@@ -44,7 +44,7 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABhostel - Entrar</title>
 
-    <link rel="stylesheet" href="../assets/css/login.css">
+    <link rel="stylesheet" href="/assets/css/login.css">
 </head>
 <body>
      <div class="page-wrapper">
@@ -52,7 +52,7 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
         <main class="card" aria-labelledby="titulo-login">
 
             <div class="logo-container">
-                <img src="../Imagens/logo.png" alt="logo do site" id="logo">
+                <img src="/assets/Imagens/logo.png" alt="logo do site" id="logo">
             </div>
 
             <h1 id="titulo-login" class="title">Login</h1>
