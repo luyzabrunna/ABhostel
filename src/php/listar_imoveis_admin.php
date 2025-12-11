@@ -85,11 +85,10 @@ $imoveis = $sql->fetchAll(PDO::FETCH_ASSOC);
                     // Foto principal
                     $foto = "../Imagens/sem-foto.png";
 
+                    $foto = "../Imagens/sem-foto.png";
+
                     if (!empty($imovel['fotos'])) {
-                        $fotosArray = explode(",", $imovel['fotos']);
-                        if (!empty(trim($fotosArray[0]))) {
-                            $foto = "../uploads/" . trim($fotosArray[0]);
-                        }
+                    $foto = "../uploads/" . $imovel['fotos'];
                     }
                     ?>
 

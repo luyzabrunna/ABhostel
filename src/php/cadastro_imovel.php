@@ -30,18 +30,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Estrutura
     $quartos = $_POST['quartos'];
     $suites = $_POST['suites'];
-    $banheiros = $_POST['banheiro'];
+    $banheiros = $_POST['banheiros'];
     $capacidade = $_POST['capacidade'];
 
     // Facilidades (checkboxes)
-    $wifi = isset($_POST['wi-fi']) ? 1 : 0;
+    $wifi = isset($_POST['wifi']) ? 1 : 0;
     $ar_condicionado = isset($_POST['ar-condicionado']) ? 1 : 0;
     $estacionamento = isset($_POST['estacionamento']) ? 1 : 0;
-    $pet_friendly = isset($_POST['pet-friendly']) ? 1 : 0;
+    $pet_friendly = isset($_POST['pet_friendly']) ? 1 : 0;
     $piscina = isset($_POST['piscina']) ? 1 : 0;
     $cozinha = isset($_POST['cozinha']) ? 1 : 0;
     $tv = isset($_POST['tv']) ? 1 : 0;
-    $area_trabalho = isset($_POST['area de trabalho']) ? 1 : 0;
+    $area_trabalho = isset($_POST['area_trabalho']) ? 1 : 0;
     $cafe_manha = isset($_POST['cafe']) ? 1 : 0;
     $maquina_lavar = isset($_POST['maquina']) ? 1 : 0;
 
@@ -59,29 +59,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $listaFotos = [];
 
     if (!empty($_FILES['fotos']['name'][0])) {
-    $listaFotos = [];
+
+    // Caminho físico da pasta uploads
+    $pastaDestino = __DIR__ . "/../uploads/";
 
     foreach ($_FILES['fotos']['name'] as $i => $nomeFoto) {
         $tmp = $_FILES['fotos']['tmp_name'][$i];
 
-        // Gera um nome único para evitar sobrescrever arquivos
+        // Nome único pra evitar conflito
         $novoNome = uniqid() . "_" . basename($nomeFoto);
 
-        // Move a foto para a pasta uploads
-        if (move_uploaded_file($tmp, "../uploads/" . $novoNome)) {
+        // Move o arquivo
+        if (move_uploaded_file($tmp, $pastaDestino . $novoNome)) {
             $listaFotos[] = $novoNome;
         } else {
             echo "Erro ao enviar a foto: $nomeFoto<br>";
         }
     }
-
-    // Salva a lista de fotos como JSON para o banco
-    $fotosJSON = json_encode($listaFotos);
-} else {
-    $fotosJSON = null;
 }
 
-    $fotosJSON = json_encode($listaFotos);
+// Transforma numa string JSON
+$fotosJSON = json_encode($listaFotos);
 
     // INSERE NO BANCO
     $sql = $conn->prepare("
@@ -160,7 +158,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <header>
     <div class="logo">
-        <a href="/index.php"><img src="/assets/imagens/logo.png" alt="Logo ABhostel"></a>
+        <a href="/index.php"><img src="../assets/imagens/logo.png" alt="Logo ABhostel"></a>
     </div>
 
     <nav class="menu-desktop">
@@ -333,7 +331,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <label><input type="checkbox" name="piscina"> Piscina</label>
         <label><input type="checkbox" name="cozinha"> Cozinha</label>
         <label><input type="checkbox" name="tv"> TV</label>
-        <label><input type="checkbox" name="area de trabalho"> Área de trabalho</label>
+        <label><input type="checkbox" name="area_trabalho"> Área de trabalho</label>
         <label><input type="checkbox" name="cafe_manha"> Café da manhã</label>
         <label><input type="checkbox" name="maquina_lavar"> Máquina de lavar</label>
 

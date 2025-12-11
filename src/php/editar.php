@@ -44,20 +44,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $capacidade = $_POST['capacidade'];
 
     // Facilidades (checkboxes)
-    $wifi = isset($_POST['wi-fi']) ? 1 : 0;
+    $wifi = isset($_POST['wifi']) ? 1 : 0;
     $ar_condicionado = isset($_POST['ar-condicionado']) ? 1 : 0;
     $estacionamento = isset($_POST['estacionamento']) ? 1 : 0;
-    $pet_friendly = isset($_POST['pet-friendly']) ? 1 : 0;
+    $pet_friendly = isset($_POST['pet_friendly']) ? 1 : 0;
     $piscina = isset($_POST['piscina']) ? 1 : 0;
     $cozinha = isset($_POST['cozinha']) ? 1 : 0;
     $tv = isset($_POST['tv']) ? 1 : 0;
-    $area_trabalho = isset($_POST['area de trabalho']) ? 1 : 0;
-    $cafe_manha = isset($_POST['cafe']) ? 1 : 0;
-    $maquina_lavar = isset($_POST['maquina']) ? 1 : 0;
+    $area_trabalho = isset($_POST['area_trabalho']) ? 1 : 0;
+    $cafe_manha = isset($_POST['cafe_manha']) ? 1 : 0;
+    $maquina_lavar = isset($_POST['maquina_lavar']) ? 1 : 0;
 
     // Preço e período
     $valor = $_POST['valor'];
-    $tipo_preco = $_POST['tipo_preço'];
+    $tipo_preco = $_POST['tipo_preco'];
     $data_inicio = $_POST['data_inicio'];
     $data_termino = $_POST['data_termino'];
 
@@ -66,32 +66,33 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email_prop = $_POST['email_proprietario'];
 
     // UPLOAD DAS FOTOS
-    $listaFotos = [];
-
-    if (!empty($_FILES['fotos']['name'][0])) {
-    $listaFotos = [];
-
-    foreach ($_FILES['fotos']['name'] as $i => $nomeFoto) {
-        $tmp = $_FILES['fotos']['tmp_name'][$i];
-
-        // Gera um nome único para evitar sobrescrever arquivos
-        $novoNome = uniqid() . "_" . basename($nomeFoto);
-
-        // Move a foto para a pasta uploads
-        if (move_uploaded_file($tmp, "../uploads/" . $novoNome)) {
-            $listaFotos[] = $novoNome;
-        } else {
-            echo "Erro ao enviar a foto: $nomeFoto<br>";
-        }
+    // fotos antigas (JSON vindo do banco → array)
+    $fotosAntigas = json_decode($imovel->fotos, true);
+    if (!is_array($fotosAntigas)) {
+    $fotosAntigas = [];
     }
 
-    // Salva a lista de fotos como JSON para o banco
-    $fotosJSON = json_encode($listaFotos);
-} else {
-    $fotosJSON = null;
+    $todasFotos = $fotosAntigas;
+
+    // Novas fotos...
+    if (!empty($_FILES['fotos']['name'][0])) {
+
+    // CAMINHO REAL DA PASTA
+    $pastaDestino = __DIR__ . "/../uploads/";
+
+    foreach ($_FILES['fotos']['name'] as $i => $nomeFoto) {
+
+        $tmp = $_FILES['fotos']['tmp_name'][$i];
+        $novoNome = uniqid() . "_" . basename($nomeFoto);
+
+        // move a foto pra pasta
+        if (move_uploaded_file($tmp, $pastaDestino . $novoNome)) {
+            $todasFotos[] = $novoNome;
+        }
+    }
 }
 
-    $fotosJSON = json_encode($listaFotos);
+    $fotosJSON = json_encode($todasFotos);
 
     // UPDATE do imóvel
     // UPDATE imoveis SET tipo = :tipo, titulo = :ti WHERE id = :id
@@ -188,12 +189,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <header>
     <div class="logo">
-        <a href="../index.php"><img src="../imagens/logo.png" alt="Logo ABhostel"></a>
+        <a href="index.php"><img src="/assets/imagens/logo.png" alt="Logo ABhostel"></a>
     </div>
 
     <nav class="menu-desktop">
         <ul class="menu-links">
-            <li><a href="../index.php">Início</a></li>
+            <li><a href="index.php">Início</a></li>
             <li><a href="listar_imoveis.php">Imóveis</a></li>
             <li><a href="#" class="active">Anuncie seu imóvel</a></li>
         </ul>
@@ -266,7 +267,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <div class="form-group">
             <label for="description">Descrição</label>
-            <input id="description" name="description" maxlength="500" rows="4" required value="<?php echo $imovel->descricao;?>"</textarea>
+            <textarea id="description" name="description" maxlength="500" rows="4" required><?php echo $imovel->descricao;?></textarea>
         </div>
 
         <h2 class="section-title">Localização do imóvel</h2>
@@ -298,7 +299,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <div class="form-group">
             <label>Estado</label>
-            <select name="estado" required  value="<?php echo $imovel->estado;?>">
+            <select name="estado" required>
                 <option value="">Selecione</option>
                 <option value="Acre (AC)">Acre (AC)</option>
                     <option value="Alagoas (AL)">Alagoas (AL)</option>
@@ -355,9 +356,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <h2 class="section-title">O que o imóvel oferece</h2>
 
         <label><input type="checkbox" name="wifi" <?php echo $imovel->wifi ? 'checked' : '';?>> Wi-fi</label>
-        <label><input type="checkbox" name="ar-condicionado" <?php echo $imovel->ar_condicionado ? 'checked' : '';?>> Ar-condicionado</label>
+        <label><input type="checkbox" name="ar_condicionado" <?php echo $imovel->ar_condicionado ? 'checked' : '';?>> Ar-condicionado</label>
         <label><input type="checkbox" name="estacionamento" <?php echo $imovel->estacionamento ? 'checked' : '';?>> Estacionamento</label>
-        <label><input type="checkbox" name="pet_friendly"> Pet-friendly <?php echo $imovel->pet_friendly ? 'checked' : '';?>Pet-friendly</label>
+        <label><input type="checkbox" name="pet_friendly" <?php echo $imovel->pet_friendly ? 'checked' : '';?>>Pet-friendly</label>
         <label><input type="checkbox" name="piscina" <?php echo $imovel->piscina ? 'checked' : '';?>> Piscina</label>
         <label><input type="checkbox" name="cozinha" <?php echo $imovel->cozinha ? 'checked' : '';?>> Cozinha</label>
         <label><input type="checkbox" name="tv" <?php echo $imovel->tv ? 'checked' : '';?>> TV</label>
@@ -369,7 +370,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <div class="form-group">
             <label>Valor (R$)</label>
-            <input type="number" name="valor" required>
+            <input type="number" name="valor" required value="<?php echo $imovel->valor;?>">
         </div>
 
         <div class="form-group">
@@ -417,7 +418,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </form>
 
 </main>
-<script src="../assets/js/menu.js"></script>
+<script src="/assets/js/menu.js"></script>
 </div>
 </body>
 </html>
