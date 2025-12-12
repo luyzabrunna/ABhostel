@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Imoveis - ABhostel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/listar_imoveis.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+{% include 'header.html.twig' %}
+
+<div class="container">
+    <div class="lista-imoveis">
+        <div class="coluna-esquerda">
+            <p>{{ imoveis|length }} opções encontradas</p>
+            <h1>Lista de Imóveis</h1>
+
+            {% if imoveis|length == 0 %}
+                <p>Nenhum imóvel encontrado</p>
+            {% endif %}
+
+            {% for imovel in imoveis %}
+                <div class="imovel">
+                    <div class="imovel-img">
+                        {# Supondo que 'fotos' é um JSON com array de nomes #}
+                        {% set fotos = imovel.fotos|json_decode %}
+                        {% if fotos and fotos|length > 0 %}
+                            <img src="../uploads/{{ fotos[0] }}" alt="Foto do imóvel">
+                        {% else %}
+                            <img src="../Imagens/sem-foto.png" alt="Sem foto">
+                        {% endif %}
+                    </div>
+
+                    <div class="imovel-info">
+                        <p>{{ imovel.descricao|e }}</p>
+                        <h3>{{ imovel.titulo|e }}</h3>
+
+                        <p>
+                            {{ imovel.quartos }} quartos /
+                            {{ imovel.banheiros }} banheiros /
+                            {% if imovel.wifi %}wifi{% else %}sem wifi{% endif %}
+                        </p>
+
+                        <!-- Estrelas fixas (visual) -->
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                        <i class="fa-regular fa-star"></i>
+
+                        <div class="imovel-valor">
+                            <p>{{ imovel.capacidade }} Hóspedes</p>
+                            <h4>
+                                R$ {{ imovel.valor|number_format(2, ',', '.') }}
+                                <span>/ {{ imovel.tipo_preco }} mês</span>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- COLUNA DIREITA (Filtros) -->
+        <div class="coluna-direita">
+            <div class="barra-lateral">
+                <h2>Filtro de Busca</h2>
+
+                <!-- Formulário de filtros (reutiliza os parâmetros atuais) -->
+                <form method="GET" action="">
+                    <!-- Mantém os parâmetros atuais -->
+                    {% if localizacao %}<input type="hidden" name="localizacao" value="{{ localizacao|e }}">{% endif %}
+                    {% if data_inicial %}<input type="hidden" name="data_inicial" value="{{ data_inicial|e }}">{% endif %}
+                    {% if data_final %}<input type="hidden" name="data_final" value="{{ data_final|e }}">{% endif %}
+                    {% if hospedes %}<input type="hidden" name="hospedes" value="{{ hospedes|e }}">{% endif %}
+
+                    <h3>Tipo de Imóvel</h3>
+                    <div class="filtro"><input type="checkbox" name="tipo[]" value="Casa"> <p>Casa</p></div>
+                    <div class="filtro"><input type="checkbox" name="tipo[]" value="Apartamento"> <p>Apartamento</p></div>
+                    <div class="filtro"><input type="checkbox" name="tipo[]" value="Kitnet"> <p>Kitnet</p></div>
+                    <div class="filtro"><input type="checkbox" name="tipo[]" value="Suíte"> <p>Suíte</p></div>
+                    <div class="filtro"><input type="checkbox" name="tipo[]" value="Hotel"> <p>Hotel</p></div>
+                    <div class="filtro"><input type="checkbox" name="tipo[]" value="Pousada"> <p>Pousada</p></div>
+                    <div class="filtro"><input type="checkbox" name="tipo[]" value="Chalé"> <p>Chalé</p></div>
+
+                    <h3>Facilidades</h3>
+                    <div class="filtro"><input type="checkbox" name="wifi" value="1"> <p>Wi-fi</p></div>
+                    <div class="filtro"><input type="checkbox" name="ar_condicionado" value="1"> <p>Ar-condicionado</p></div>
+                    <div class="filtro"><input type="checkbox" name="estacionamento" value="1"> <p>Estacionamento</p></div>
+                    <div class="filtro"><input type="checkbox" name="pet_friendly" value="1"> <p>Pet-friendly</p></div>
+                    <div class="filtro"><input type="checkbox" name="piscina" value="1"> <p>Piscina</p></div>
+                    <div class="filtro"><input type="checkbox" name="cozinha" value="1"> <p>Cozinha</p></div>
+                    <div class="filtro"><input type="checkbox" name="tv" value="1"> <p>TV</p></div>
+                    <div class="filtro"><input type="checkbox" name="area_trabalho" value="1"> <p>Área de trabalho</p></div>
+                    <div class="filtro"><input type="checkbox" name="acessivel" value="1"> <p>Acessível</p></div>
+                    <div class="filtro"><input type="checkbox" name="cafe_manha" value="1"> <p>Café da manhã</p></div>
+                    <div class="filtro"><input type="checkbox" name="maquina_lavar" value="1"> <p>Máquina de lavar</p></div>
+
+                    <div class="barra-lateral-link">
+                        <a href="">Veja Mais</a>
+                    </div>
+
+                    <h3>Estado / Cidade</h3>
+                    <div class="filtro">
+                        <select name="estado">
+                            <option value="">Selecione o Estado</option>
+                            <option value="Acre (AC)">Acre (AC)</option>
+                            <option value="Alagoas (AL)">Alagoas (AL)</option>
+                            <option value="Amapá (AP)">Amapá (AP)</option>
+                            <option value="Amazonas (AM)">Amazonas (AM)</option>
+                            <option value="Bahia (BA)">Bahia (BA)</option>
+                            <option value="Ceará (CE)">Ceará (CE)</option>
+                            <option value="Espírito Santo (ES)">Espírito Santo (ES)</option>
+                            <option value="Goiás (GO)">Goiás (GO)</option>
+                            <option value="Maranhão (MA)">Maranhão (MA)</option>
+                            <option value="Mato Grosso (MT)">Mato Grosso (MT)</option>
+                            <option value="Mato Grosso do Sul (MS)">Mato Grosso do Sul (MS)</option>
+                            <option value="Minas Gerais (MG)">Minas Gerais (MG)</option>
+                            <option value="Pará (PA)">Pará (PA)</option>
+                            <option value="Paraíba (PB)">Paraíba (PB)</option>
+                            <option value="Paraná (PR)">Paraná (PR)</option>
+                            <option value="Pernambuco (PE)">Pernambuco (PE)</option>
+                            <option value="Piauí (PI)">Piauí (PI)</option>
+                            <option value="Rio de Janeiro (RJ)">Rio de Janeiro (RJ)</option>
+                            <option value="Rio Grande do Norte (RN)">Rio Grande do Norte (RN)</option>
+                            <option value="Rio Grande do Sul (RS)">Rio Grande do Sul (RS)</option>
+                            <option value="Rondônia (RO)">Rondônia (RO)</option>
+                            <option value="Roraima (RR)">Roraima (RR)</option>
+                            <option value="Santa Catarina (SC)">Santa Catarina (SC)</option>
+                            <option value="São Paulo (SP)">São Paulo (SP)</option>
+                            <option value="Sergipe (SE)">Sergipe (SE)</option>
+                            <option value="Tocantins (TO)">Tocantins (TO)</option>
+                            <option value="Distrito Federal (DF)">Distrito Federal (DF)</option>
+                        </select>
+                    </div>
+
+                    <div class="filtro">
+                        <input type="text" name="cidade" placeholder="Digite a cidade">
+                    </div>
+
+                    <button class="cadastro-btn">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/assets/js/menu.js"></script>
+</body>
+</html>

@@ -11,37 +11,10 @@
 </head>
 <body>
 
-<?php
-require_once "../php/ImovelController.php";
-session_start();
-
-// Verifica login
-if (!isset($_SESSION['usuario_id'])) {
-    header("Location: login.php");
-    exit;
-}
-
-$mensagem = "";
-$erro = "";
-
-// Processa o formulário
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $controller = new ImovelController();
-    $resultado = $controller->create($_POST, $_FILES);
-    
-    if ($resultado['success']) {
-        $mensagem = $resultado['message'];
-    } else {
-        $erro = $resultado['message'];
-    }
-}
-?>
-
 <header>
     <div class="logo">
         <a href="/index.php"><img src="../assets/imagens/logo.png" alt="Logo ABhostel"></a>
     </div>
-
     <nav class="menu-desktop">
         <ul class="menu-links">
             <li><a href="/index.php">Início</a></li>
@@ -50,7 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </ul>
         <a href="painel.php" class="btn-login">Voltar ao painel</a>
     </nav>
-
     <button class="btn open" aria-label="Abrir menu"><i class="fas fa-bars"></i></button>
 </header>
 
@@ -60,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <a href="index.php">Início</a>
         <hr class="divider">
         <a href="/php/listar_imoveis.php">Imóveis</a>
-        <a href="/php/cadastrar_imovel.php">Anuncie seu imóvel</a>
+        <a href="/php/anunciar.php">Anuncie seu imóvel</a>
         <hr class="divider">
         <a href="/php/sobre.php">Sobre</a>
         <a href="/php/contato.php">Contato</a>
@@ -80,16 +52,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <main class="card">
     <h1>Anuncie seu Imóvel</h1>
 
-    <?php if ($mensagem): ?>
-        <p class="msg-sucesso"><?= $mensagem ?></p>
-    <?php endif; ?>
-
-    <?php if ($erro): ?>
-        <p class="msg-erro"><?= $erro ?></p>
-    <?php endif; ?>
+    {% if mensagem %}
+        <p class="msg-sucesso">{{ mensagem }}</p>
+    {% endif %}
 
     <form method="POST" enctype="multipart/form-data">
-        
+
         <h2 class="section-title">Informações básicas do imóvel</h2>
 
         <div class="form-group">
@@ -186,7 +154,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <div class="form-group">
             <label>Suítes</label>
-            <input type="number" name="suites" min="0" value="0">
+            <input type="number" name="suites" min="0">
         </div>
 
         <div class="form-group">
@@ -209,14 +177,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <label><input type="checkbox" name="cozinha"> Cozinha</label>
         <label><input type="checkbox" name="tv"> TV</label>
         <label><input type="checkbox" name="area_trabalho"> Área de trabalho</label>
-        <label><input type="checkbox" name="cafe"> Café da manhã</label>
-        <label><input type="checkbox" name="maquina"> Máquina de lavar</label>
+        <label><input type="checkbox" name="cafe_manha"> Café da manhã</label>
+        <label><input type="checkbox" name="maquina_lavar"> Máquina de lavar</label>
 
         <h2 class="section-title">Preço e período</h2>
 
         <div class="form-group">
             <label>Valor (R$)</label>
-            <input type="number" name="valor" step="0.01" required>
+            <input type="number" name="valor" required>
         </div>
 
         <div class="form-group">
@@ -242,7 +210,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <div class="form-group">
             <label>WhatsApp</label>
-            <input type="tel" name="whatsapp" placeholder="(00) 00000-0000" required>
+            <input type="tel" name="whatsapp" required>
         </div>
 
         <div class="form-group">
@@ -264,9 +232,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </form>
 
 </main>
-<script src="../assets/js/menu.js"></script>
 </div>
+
+<script src="../assets/js/menu.js"></script>
 </body>
 </html>
-
-<?php
