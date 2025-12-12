@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ABhostel{% endblock %}</title>
+
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Nunito&display=swap" rel="stylesheet">
+
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Estilos base -->
+    <link rel="stylesheet" href="/assets/css/base.css">
+    
+    <!-- Estilos específicos da página (opcional) -->
+    {% block styles %}{% endblock %}
+</head>
+<body>
+
+    <!-- Inclui o cabeçalho comum -->
+    {% include 'header.html.twig' %}
+
+    <!-- Conteúdo principal (diferente em cada página) -->
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Scripts base -->
+    <script src="/assets/js/menu.js"></script>
+    
+    <!-- Scripts específicos da página (opcional) -->
+    {% block scripts %}{% endblock %}
+</body>
+</html>

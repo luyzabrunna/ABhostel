@@ -1,51 +1,12 @@
-?>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABhostel - Cadastrar Imóvel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Nunito&display=swap" rel="stylesheet">
+{% extends 'Base.html.twig' %}
+
+{% block title %}ABhostel - Cadastrar Imóvel{% endblock %}
+
+{% block styles %}
     <link rel="stylesheet" href="/assets/css/cadastro_imovel.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
+{% endblock %}
 
-<header>
-    <div class="logo">
-        <a href="/index.php"><img src="../assets/imagens/logo.png" alt="Logo ABhostel"></a>
-    </div>
-    <nav class="menu-desktop">
-        <ul class="menu-links">
-            <li><a href="/index.php">Início</a></li>
-            <li><a href="listar_imoveis_admin.php">Imóveis</a></li>
-            <li><a href="#" class="active">Anuncie seu imóvel</a></li>
-        </ul>
-        <a href="painel.php" class="btn-login">Voltar ao painel</a>
-    </nav>
-    <button class="btn open" aria-label="Abrir menu"><i class="fas fa-bars"></i></button>
-</header>
-
-<div class="menu-overlay" aria-hidden="true"></div>
-<div class="mobile-menu" aria-hidden="true">
-    <div class="mobile-links">
-        <a href="index.php">Início</a>
-        <hr class="divider">
-        <a href="/php/listar_imoveis.php">Imóveis</a>
-        <a href="/php/anunciar.php">Anuncie seu imóvel</a>
-        <hr class="divider">
-        <a href="/php/sobre.php">Sobre</a>
-        <a href="/php/contato.php">Contato</a>
-        <hr class="divider">
-        <a href="painel.php" class="login-mobile">Voltar ao painel</a>
-    </div>
-    <div class="mobile-social">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-    </div>
-</div>
-
+{% block content %}
 <br><br>
 
 <div class="page-wrapper">
@@ -233,7 +194,9 @@
 
 </main>
 </div>
+{% endblock %}
 
-<script src="../assets/js/menu.js"></script>
-</body>
-</html>
+{% block scripts %}
+    {{ parent() }}
+    <!-- Qualquer script específico viria aqui -->
+{% endblock %}

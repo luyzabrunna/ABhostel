@@ -1,17 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listagem de Imoveis - ABhostel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Nunito&display=swap" rel="stylesheet">
+{% extends 'Base.html.twig' %}
+
+{% block title %}Listagem de Imóveis - ABhostel{% endblock %}
+
+{% block styles %}
     <link rel="stylesheet" href="/assets/css/listar_imoveis.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
+{% endblock %}
 
-{% include 'header.html.twig' %}
-
+{% block content %}
 <div class="container">
     <div class="lista-imoveis">
         <div class="coluna-esquerda">
@@ -25,12 +20,11 @@
             {% for imovel in imoveis %}
                 <div class="imovel">
                     <div class="imovel-img">
-                        {# Supondo que 'fotos' é um JSON com array de nomes #}
                         {% set fotos = imovel.fotos|json_decode %}
                         {% if fotos and fotos|length > 0 %}
-                            <img src="../uploads/{{ fotos[0] }}" alt="Foto do imóvel">
+                            <img src="/uploads/{{ fotos[0] }}" alt="Foto do imóvel">
                         {% else %}
-                            <img src="../Imagens/sem-foto.png" alt="Sem foto">
+                            <img src="/assets/Imagens/sem-foto.png" alt="Sem foto">
                         {% endif %}
                     </div>
 
@@ -68,9 +62,7 @@
             <div class="barra-lateral">
                 <h2>Filtro de Busca</h2>
 
-                <!-- Formulário de filtros (reutiliza os parâmetros atuais) -->
                 <form method="GET" action="">
-                    <!-- Mantém os parâmetros atuais -->
                     {% if localizacao %}<input type="hidden" name="localizacao" value="{{ localizacao|e }}">{% endif %}
                     {% if data_inicial %}<input type="hidden" name="data_inicial" value="{{ data_inicial|e }}">{% endif %}
                     {% if data_final %}<input type="hidden" name="data_final" value="{{ data_final|e }}">{% endif %}
@@ -146,7 +138,4 @@
         </div>
     </div>
 </div>
-
-<script src="/assets/js/menu.js"></script>
-</body>
-</html>
+{% endblock %}

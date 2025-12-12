@@ -1,0 +1,44 @@
+<header>
+    <div class="logo">
+        <a href="/index.php"><img src="/assets/Imagens/logo.png" alt="Logo ABhostel"></a>
+    </div>
+
+    <nav class="menu-desktop">
+        <ul class="menu-links">
+            <li><a href="/index.php">Início</a></li>
+            <li><a href="/listar_imoveis.php">Imóveis</a></li>
+            {% if app.usuario_logado %} {# se usar variável de sessão futuramente #}
+                <li><a href="/painel.php">Painel</a></li>
+                <li><a href="/logout.php">Sair</a></li>
+            {% else %}
+                <li><a href="/login.php">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <button class="btn open" aria-label="Abrir menu"><i class="fas fa-bars"></i></button>
+</header>
+
+<!-- Overlay e menu mobile (mantenha igual ao seu HTML) -->
+<div class="menu-overlay" aria-hidden="true"></div>
+<div class="mobile-menu" aria-hidden="true">
+    <div class="mobile-links">
+        <a href="/index.php">Início</a>
+        <hr class="divider">
+        <a href="/listar_imoveis.php">Imóveis</a>
+        {% if app.usuario_logado %}
+            <a href="/painel.php">Painel</a>
+            <a href="/logout.php">Sair</a>
+        {% else %}
+            <a href="/login.php">Login</a>
+        {% endif %}
+        <hr class="divider">
+        <a href="/sobre.php">Sobre</a>
+        <a href="/contato.php">Contato</a>
+    </div>
+    <div class="mobile-social">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+</div>
