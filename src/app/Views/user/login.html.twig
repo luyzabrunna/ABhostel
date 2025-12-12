@@ -1,0 +1,47 @@
+{% extends 'Base.html.twig' %}
+
+{% block title %}ABhostel - Entrar{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="/assets/css/login.css">
+{% endblock %}
+
+{% block content %}
+<div class="page-wrapper">
+    <main class="card" aria-labelledby="titulo-login">
+        <div class="logo-container">
+            <img src="/assets/Imagens/logo.png" alt="logo do site" id="logo">
+        </div>
+
+        <h1 id="titulo-login" class="title">Login</h1>
+
+        {% if erro %}
+            <p class="msg-erro">{{ erro }}</p>
+        {% endif %}
+
+        <form id="loginForm" class="form" action="/login.php" method="POST">
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="seu@email.com" required value="{{ email_digitado|e }}">
+            </div>
+
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Sua senha" required>
+            </div>
+
+            <div class="forgot-password">
+                <a href="#" class="link-termos">Esqueceu a senha?</a>
+            </div>
+
+            <button type="submit" class="btn btn-submit">ENTRAR</button>
+        </form>
+
+        <div class="card-footer">
+            <p class="have-account">Não tem conta? >
+                <a href="/cadastro.php" class="link-entrar">Crie sua conta</a>
+            </p>
+        </div>
+    </main>
+</div>
+{% endblock %}
